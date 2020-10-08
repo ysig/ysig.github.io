@@ -1,10 +1,8 @@
 # main links
 main:
-  - title: "Text"
+  - title: "texts"
     url: /texts/
-  - title: "Doing Now"
-    url: /currently/
-  - title: "Music"
+  - title: "Projects"
     url: /music/
-  - title: "About"
+  - title: "whoami"
     url: /about/
