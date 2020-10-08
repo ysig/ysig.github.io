@@ -2,7 +2,7 @@
 main:
   - title: "texts"
     url: /texts/
-  - title: "Projects"
-    url: /music/
+  - title: "projects"
+    url: /project/
   - title: "whoami"
-    url: /about/
+    url: /whoami/
