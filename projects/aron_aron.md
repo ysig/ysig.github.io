@@ -1,0 +1,24 @@
+# ἄρον ἄρον
+
+One of the most beautiful periods of my life, was that of discovering _electronic music_. 
+Or rather discovering that all music is electronic; discovering sound as a transformable component to music.
+
+I passed from all phases of personal exploration really fast:
+from playing with arpeggios delays and filter, the _trans_ of techno music, Aphex Twin, Autechre and Jlin, and
+listening resonating sounds of mechanical components in the Metro, Delya Derbischyre and Pierre Schaffer.
+
+My first synthesizer was the Korg Monotron and I think is the most exciting thing I have yet played.
+Another one was a Nintendo DS, borrowed by a friend which had the Korg DS-10 in it, which was maybe the initial motivation for this project.
+
+__ἄρον ἄρον__ literally means in a hurry. I wasn't sure if should have started posting songs or not but then I remembered the idea of bootstrapping.
+Once I started a pattern emerge which had a relevant uniqueness:
+Processed everyday photos, phone recordings, sound samples from the internet, sampled expensive instruments, phone synthesizer apps and an ephemeral blog style posting of non perfectly produced sounds.
+
+As the voice in my triptych song [cave](https://soundcloud.com/aron_aron/cave) says:
+"We've been coming here for 20 years or so and we still don't understand all of what's happening. 
+We are learning as we go and it's tiring and frustrating and we are there for a long time maybe 10 hours maybe 12 hours;
+and then we go back to the lab and there is months of work to do. 
+But we have to make that in order to make sense of what we've seen here."
+
+I claim that my project is to electronic dance music, what impressionism was to representational art - but in a more banal form.
+If you want to listen to it you can find this project [here](https://soundcloud.com/aron_aron/).

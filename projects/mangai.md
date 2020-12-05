@@ -1,0 +1,13 @@
+# MangAI
+
+Manga is a very well known form of Japanese cartoons which can come in huge spectrum of quality and preparation time.
+It is an industry with innumerable niches of styles and communities and markets.
+Industry which has been heavily automated in all its parts of production and distribution, even described as a Tayloric Process.
+A lot of synthetic tools have until now been used in parts of this process, but nobody has ever tried embodying this "automatic process" to technology.
+
+This is an art project of [Ilan Manouach](https://en.wikipedia.org/wiki/Ilan_Manouach) and part of the efforts of [Applied Memetic](https://www.appliedmemetic.com/), aiming in exploring the concept of automation in the comics industry.
+
+With the team of Phoevos Kallogianis and Thomas Melistas and Ilan Manouach, we have created a huge collection of comics, that we preprocessed in order to extract information about panels, text balloons, texts and metadata about their author and subject.
+Using Language models trained in various text corpora and GANs on our images, we constructed the first published full pipeline of extracting information from Comics and learning to generate text, pictures and to assemble them to a final manga comic.
+
+We present our current milestone in NeurIPS creativity 2020. It is a work in progress which we aim to boost even more inside 2021.

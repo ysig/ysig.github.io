@@ -20,7 +20,7 @@ title                    : "ysig"
 title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "ysig"
-description              : "An amazing website."
+description              : "Theory without practice, can at least be inspirational."
 url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
@@ -93,10 +93,10 @@ analytics:
 
 # Site Author
 author:
-  name             : "yig"
+  name             : ""
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
-  bio              : "I am an **amazing** person."
-  location         : "Somewhere"
+  bio              : "Under Construction"
+  location         : "Paris"
   email            :
   links:
     - label: "Email"

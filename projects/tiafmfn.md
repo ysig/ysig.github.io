@@ -1,0 +1,27 @@
+# Technology is a False Metaphor for Nature
+
+Why does high level music, belong to the past, to academics and produce the intimidated feeling of beaurocratic classification.
+
+I have noticed how much what you say is affected by what you relative standing in society already is.
+It's not about who comes up with an idea, but who comes up with an opportunity to express it publicly and influence.
+And thus this becomes a part of attention and not freedom of speech.
+
+Having that in mind, I started spending time in a totally utopian project which made my mind kick.
+I had previous art endeavors, I was writing poems I wrote a scifi and a small movie scenario.
+Even with my practice with Aron Aron I felt that I was more close to music and not what I believed was art: a more unifying language.
+I always had the need to explain why I do something. A lot of artists don't do that, which is ok, but why should I conform if that was my need.
+Other artists say things about their work in an interview or have a curator give an idea about it.
+I had no supporters and nobody was going to curate me or take an interview. I was going to do it by myself.
+
+"Technology is a False Metaphor for Nature" comes from the idea that I often here that nature is like technology or technology is like nature.
+Starting from that I created my first album, which I later titled "Inception".
+It has an artificial link to ethnomusicology and the whole purpose of the album is to stand in the same way as an archive of recording from distant localities.
+
+My second single "Choliphora" was a form of automatic writing.
+I liked the idea of music as a form of representation. I was amazed from seeing the Bernstein Harvard lectures, of how symphonies are constructed on top of really analytical and emotional categories and the composer has that an amazing skill and control of the aesthetic/emotional exploration/reflection to the listener (See the Bernstein Harvard Lectures).
+
+My last album "A new mode of production is necessary!" was my first mainly conceptual piece.
+In this album all I wanted was to share ideas and engage the listener. I find the period we are passing really crucial. So why not make statement about it?
+To give it a touch of the present, I carefully planed all songs to contain a neural network process somewhere in the development stack.
+
+You can find my work [here](https://tiafmfn.bandcamp.com/).

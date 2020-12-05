@@ -6,3 +6,5 @@ main:
     url: /project/
   - title: "whoami"
     url: /whoami/
+  - title: "ZEN"
+    url: https://ysig.github.io/the-ml-repo-zen/
