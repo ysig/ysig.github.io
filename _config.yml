@@ -97,7 +97,7 @@ author:
   avatar           : # path of avatar image, e.g. "/assets/images/bio-photo.jpg"
   bio              : "Under Construction"
   location         : "Paris"
-  email            : "ioannis.siglidis@ens-paris-saclay.fr
+  email            : "ioannis.siglidis@ens-paris-saclay.fr"
   links:
     - label: "Email"
       icon: "fas fa-fw fa-envelope-square"
