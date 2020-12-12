@@ -37,7 +37,8 @@ There is a consensus among researchers that data such as human images _live_ on 
 This means you need to encode this surface, in a lower dimension.
 This is where generative models such as GANs and Variational-Autoencoders, have paved the road for imagining a future where synthetic media will be possible.
 
-So synthetic media come at the intersection of what looks real and what can be generated and synthesized from reality.
+So synthetic media come at the intersection of what looks real and what can be generated and synthesized from reality.  
+
 ![A Venn diagram of synthetic media.](synthetic_media.png)
 
 There is a bigger part of what exists that looks real and this is where synthesized realities can come and play a role.
