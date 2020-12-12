@@ -10,4 +10,4 @@ This is an art project of [Ilan Manouach](https://en.wikipedia.org/wiki/Ilan_Man
 With the team of Phoevos Kallogianis and Thomas Melistas and Ilan Manouach, we have created a huge collection of comics, that we preprocessed in order to extract information about panels, text balloons, texts and metadata about their author and subject.
 Using Language models trained in various text corpora and GANs on our images, we constructed the first published full pipeline of extracting information from Comics and learning to generate text, pictures and to assemble them to a final manga comic.
 
-We present our current milestone in NeurIPS creativity 2020. It is a work in progress which we aim to boost even more inside 2021.
+We present our current milestone in [NeurIPS creativity 2020](http://www.aiartonline.com/category/design-2020/). It is a work in progress which we aim to boost even more inside 2021.
