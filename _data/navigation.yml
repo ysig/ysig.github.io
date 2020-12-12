@@ -1,10 +1,10 @@
 # main links
 main:
-  - title: "~$texts"
+  - title: "texts"
     url: /texts/
-  - title: "~$projects"
+  - title: "projects"
     url: /projects/
-  - title: "~$whoami"
+  - title: "whoami"
     url: /whoami/
-  - title: "~$ZEN"
+  - title: "ZEN"
     url: https://ysig.github.io/the-ml-repo-zen/
