@@ -2,7 +2,7 @@
 
 As I won't become a keynote speaker of an AI conference anytime soon, I decided to share some ideas about the future of Deep Learning. I will first propose some exploratory directions.
 
-1. Symbolic Constraints
+__I__ Symbolic Constraints
 
   By interpreting architectures like ResNet on ImageNet it has been understood, that training a multi-layered neural network results in a certain amount of symbolic abstraction: neurons based on their level become specialized from finding eyes and dog-faces to curvy vs straight textures and other mixed categories. What we see there, is the emergence of a symbolic language (though there are concerns to whether this is a language or just a vocabulary, something similar to a bag-of-words). Although we are fascinated by the fact that eyes and eye-like peacock feathers are translated to the same one hot vector, the problem is that sometimes the model doesn't frame this as a metaphor.
 
@@ -27,7 +27,7 @@ As I won't become a keynote speaker of an AI conference anytime soon, I decided 
 
   As so I don't consider it as the way to go, but a first interesting exploratory experiment.
 
-2. A science of architectures
+__II__ A science of architectures
 
   As we all have heard, noticed or know, Deep Learning has been considered the last years to be the same that alchemy was before the existence of chemistry. But will the equivalent of chemistry exist for deep-learning? In order to make deep learning meaningful, a lot of researchers have used interpretation techniques and well-annoted data. 
   But as the unsupervised part of neural networks becomes more and more important as a research direction, a science of architectures should be developed. We can imagine architecture for neural networks as the analogue circuitry in electronics. It is both a craft and a science. Craft as the tuning of a model, they way you stack layers and the small individual choices on parameters can create exceptional results, but the general approach behind it relies to certain properties of architectures, which can embody a categorization of certain data-species. From that concern, biology can also give as a clue for discovering architectures, either elementary like feed forward neural networks or complex as those for language processing. 
@@ -39,7 +39,7 @@ As I won't become a keynote speaker of an AI conference anytime soon, I decided 
   So interpretability, should be replaced with controllability and the latter is what a science of architectures could solve.
 
 
-3. Adaptive architectures
+__III__ Adaptive architectures
 
   But what if we try to make the above idea, learnable. We have considered the architecture as something fixed, but both the data don't necessarily belong to a certain category, or maybe we don't need to say something scientific of where our data belongs, but rather exploit properties of data for constructing certain architectures that will generalise better on them, than others. Although, we maybe far from that as even things like hyper-parameter tuning is recently becoming artificially learnable, the idea of neuro-genesis or splitting like it's done in random-forest algorithms is not a new idea. I make the claim here, that if the technology of neural networks makes it possible of adapting an architecture to some data, while training the same model, this will cover the amazing properties of random forests (maybe not in performance). 
 
@@ -50,7 +50,7 @@ As I won't become a keynote speaker of an AI conference anytime soon, I decided 
   Finetuning your architecture becomes a very intuitive and it's not just a matter of trying things out.
   I can argue that AGI will be at the moment where intuition will not be a solution to human problems.
 
-4. Learning with Components
+__IV__ Learning with Components
 
 As inside the brain we can imagine that certain neurons work isolated, but others are combined with neurons from other parts of the brain, deep-learning systems will reach an AGI moment, only if they both become (1) spread and (2) diverse. By spread I mean that they will be learning from multiple domains (pictures, text, speech) at the same time and separately and by diverse that they will embody different processes of learning (such as organs do in functions of the body). We need brains not just models.
 This also raises the problem of direction. Right now most deep-learning models work with the use of forward propagate (generate) and back-propagate (learn) methods.
@@ -67,7 +67,7 @@ An Image from the paper of CyCADA summarizing a lot of what I've talked about: A
 
 I will try to close this article with two more sociological concerns.
 
-1. GPUs
+__I__ GPUs
   The rise of AI came in bi-directional relationship with an existing business that found a new market: GPUs. Although this is cool, it has three main drawbacks:
   i. Price
     GPUs are expensive and doing anything novel may require a bunch of them. Both with the cloud based approach it leads in a centralised sense of resources. Where buying a machine is a commodity bought only once and used until outdated, nowadays the cloud-resources never get outdated, though being constantly a commodity. Sort of an analogy between using lime's and having your own bike. Of course having a lot of cars becomes a huge waste and restricts access to those who cannot afford buying one for themselves, but following the cloud approach creates a huge centralisation and in the long run becomes even more expensive (although in the case of GPUs execution times inside clouds are sometimes incomparably better). 
@@ -79,7 +79,7 @@ I will try to close this article with two more sociological concerns.
   iii. Shaping research directions
     A lot of researchers who currently are in top notch companies, develop experiments or models and _think_ in the context having huge clusters of gpu, on their. Such a practice doesn't make resources, but the science itself non secular, as it cannot be replicated by most researchers in the world and in a way cannot be understood. The power which lies behind such approaches makes the realisation that "Stacking more layers makes you network", seem like the go-to strategy for solving complex tasks with deep-learning.
 
-2. Culture of the deep-learning community
+__II__ Culture of the deep-learning community
   The progress of any scientific/technological community is always related to its social status as a community and the social backgrounds of its members. Deep Learning seems to have the ability to bring all the arts and sciences (phycisists, chemists, biologists, pharmacists, illustrators and more) together, but this unity is not back-propagated to all the members of the community. As so, even outside of private sector funding, we see that some problems are considered as much more important than others. As a result allocation of  capital (humans, resources, …) focuses more on certain kinds of task rather than others. For example deep-learning in music, doesn't have the prestige and the financial support that NLP has and unfortunately not the same voice.
   The fact is that science has always profited by solutions in different fields (there is never a single research application) and also itself can be thought of as a language that allows access to different fields. In juxtaposition to that we have the classic thing: tech guys talking about doing real science and saying that everybody else is using the fruit of their labour, while whining. This has to change. The individuals of the scientific community (of deep-learning) should become diversified  and not only the community, just being a bunch of people using a common tool.
   Of course not any of these problems are unique to this community, but its power could change it.
