@@ -1,5 +1,7 @@
 # Math is cheap. Saw me the code!
 
+"Computers Speak a certain language, so there's a fast moving language that you have to learn. And then once you have done that, you just explain the mathematics but in that language; and the big problem is that in maths departments across the world, we're teaching people the mathematical ideas, but nobody is teaching them the language that these computers speak. Mathematics is not quite what it's sold ... We tell undergraduates that mathematics is this completely rigorous you know complete theory built from the axioms and in practice that's not how mathematics is done; computers are quite picky because they do want to know what's going on. So one challenge that we have faced is that people are slightly imprecise and computers don't buy it ..." [Kevin Buzzard](youtube.com/watch?v=HL7DEkXV_60)
+
 This post is a détournement of the phrase of Linux Torvalds: "Talk is cheap; show me the code".
 
 I adore math and I have no problem with it as a practice and I also encourage it.
@@ -44,8 +46,6 @@ Additionally specific implementation details are those, which a lot of the time 
 Saying this in a different way, it also the way a problem is defined in code, that makes it successful and thus well known. 
 A common example for that is word2Vec where there are terms that are only there in order to make it work and elements in the definition of the problem that allow optimizing its runtime performance.
 So I would suggest, that the more groundbreaking a paper is, the more it should report its technical details which make it work.
-
-"Computers Speak a certain language, so there's a fast moving language that you have to learn. And then once you have done that, you just explain the mathematics but in that language; and the big problem is that in maths departments across the world, we're teaching people the mathematical ideas, but nobody is teaching them the language that these computers speak. Mathematics is not quite what it's sold ... We tell undergraduates that mathematics is this completely rigorous you know complete theory built from the axioms and in practice that's not how mathematics is done; computers are quite picky because they do want to know what's going on. So one challenge that we have faced is that people are slightly imprecise and computers don't buy it ..." [Kevin Buzzard](youtube.com/watch?v=HL7DEkXV_60)
 
 To conclude, we can observe that in that sense the problem becomes political: how much science is hidden behind company walls and restricted from access to resources. If technology is part of science, then democratizing science means democratizing technology. Also it reflects the problem of non-reproducible science, because in case there is no scam, either the scientist didn't specify a part of its code or the code implementation was that specific that code didn't work with different ones.
 Thus, by giving technology a more respected part in science, science in turn will become more honest and more secular.
