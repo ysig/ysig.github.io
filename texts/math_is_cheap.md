@@ -35,15 +35,17 @@ As math is an infrastructure itself, as it happens with any language, numpy, sci
 An example of that is automatic differentiation, a mix mathematical computer science and implementation methods.
 If automatic differentiation wasn't so successfully implemented in pytorch, tensorflow etc, neural networks wouldn't be recognized as that important as everybody would secretly or indirectly agree on that _it's hard to use in practice_. Basically advances in small technical/mathematical achievements is what made neural networks train and work in the first place.
 
-I wouldn't argue that the bootstrapping of a field happens with math, as a researcher thinks of something and implements it an simple way to demonstrate his or her idea.
+I wouldn't argue that the bootstrapping of a field happens with math, as a researcher thinks of something and implements it in an simple way to demonstrate his or her idea.
 After that someone invests in this and builds an infrastructure, which in turn allows more math to happen.
 Someone can argue, that even demonstrating your math idea for the first time, is based on an existing infrastructure that allows you to do it.
-So this becomes a chicken and an egg problem, with no particular significance for science itself which is the totality of this process.
+So this becomes a chicken and an egg problem, with no particular significance for science itself, which is the totality of this process.
 
 Additionally specific implementation details are those, which a lot of the time make a concept work and lead to technical advantages.
 Saying this in a different way, it also the way a problem is defined in code, that makes it successful and thus well known. 
 A common example for that is word2Vec where there are terms that are only there in order to make it work and elements in the definition of the problem that allow optimizing its runtime performance.
 So I would suggest, that the more groundbreaking a paper is, the more it should report its technical details which make it work.
+
+"Computers Speak a certain language, so there's a fast moving language that you have to learn. And then once you have done that, you just explain the mathematics but in that language; and the big problem is that in maths departments across the world, we're teaching people the mathematical ideas, but nobody is teaching them the language that these computers speak. Mathematics is not quite what it's sold ... We tell undergraduates that mathematics is this completely rigorous you know complete theory built from the axioms and in practice that's not how mathematics is done; computers are quite picky because they do want to know what's going on. So one challenge that we have faced is that people are slightly imprecise and computers don't buy it ..." [Kevin Buzzard](youtube.com/watch?v=HL7DEkXV_60)
 
 To conclude, we can observe that in that sense the problem becomes political: how much science is hidden behind company walls and restricted from access to resources. If technology is part of science, then democratizing science means democratizing technology. Also it reflects the problem of non-reproducible science, because in case there is no scam, either the scientist didn't specify a part of its code or the code implementation was that specific that code didn't work with different ones.
 Thus, by giving technology a more respected part in science, science in turn will become more honest and more secular.
