@@ -1,4 +1,4 @@
-As long as the internet exists or to state it better its _infrastructure_ or as long they don't kick me out of GitHub, this is what I have been working on:
+Tha grind:
 
 - [GraKeL](./grakel.md)
 - [Twitter Bots](./twitter-bots.md)
