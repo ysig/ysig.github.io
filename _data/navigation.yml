@@ -1,10 +1,12 @@
 # main links
 main:
-  - title: "texts"
-    url: /texts/
-  - title: "projects"
-    url: /projects/
-  - title: "whoami"
-    url: /whoami/
-  - title: "ZEN"
-    url: https://ysig.github.io/the-ml-repo-zen/
+  - title: "Quick-Start Guide"
+    url: https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/
+  # - title: "About"
+  #   url: https://mmistakes.github.io/minimal-mistakes/about/
+  # - title: "Sample Posts"
+  #   url: /year-archive/
+  # - title: "Sample Collections"
+  #   url: /collection-archive/
+  # - title: "Sitemap"
+  #   url: /sitemap/
