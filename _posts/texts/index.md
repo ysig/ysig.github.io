@@ -1,5 +1,6 @@
 ---
 title: Texts
+layout: single
 ---
 
 _theory_ can sometimes be just things someone have read, but shuffled.
