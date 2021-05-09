@@ -1,4 +1,7 @@
-# Why Embrace Synthetic Media?
+---
+layout: post
+title: Why Embrace Synthetic Media?
+---
 
 Synthetic media is an aesthetic technique or an aesthetic approach.
 An essential part of it relates with what people in general call the _Fake_: fake news, deepfakes, etc.
