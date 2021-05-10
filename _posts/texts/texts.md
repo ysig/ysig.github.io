@@ -1,13 +1,3 @@
----
-title: Texts
-layout: single
-author_profile: true
-read_time: true
-share: true
-related: true
-permalink: /texts/
----
-
 _theory_ can sometimes be just things someone have read, but shuffled.
 
 Here is a list of texts that I wrote:

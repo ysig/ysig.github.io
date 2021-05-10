@@ -84,7 +84,6 @@ __II__ Culture of the deep-learning community
   The fact is that science has always profited by solutions in different fields (there is never a single research application) and also itself can be thought of as a language that allows access to different fields. In juxtaposition to that we have the classic thing: tech guys talking about doing real science and saying that everybody else is using the fruit of their labour, while whining. This has to change. The individuals of the scientific community (of deep-learning) should become diversified  and not only the community, just being a bunch of people using a common tool.
   Of course not any of these problems are unique to this community, but its power could change it.
 
-
 ---
 
-I do not claim the intellectual property, of any of the above. As in any member of a scientific community, individual knowledge, comes with a process of isolation and attention on crystallising the underlying ideas and debates of current scientific dialogues. So excuse me if all of that is already out there. It will be at a certain point and it may be redundant. I just hope for some, who have the ability of shaping the research directions of deep-learning, that this becomes, for now at least, somewhat useful.
+I do not claim the intellectual property, of any of the above. As in any member of a scientific community, individual knowledge, comes with a process of isolation and attention on crystallising the underlying ideas and debates of current scientific discourse. So excuse me if all of that is already out there. It will be at a certain point and this point will be redundant. I just hope for some, who have the ability of shaping the research directions of deep-learning that this becomes, for now at least, somewhat useful.
