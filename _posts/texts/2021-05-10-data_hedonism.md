@@ -1,4 +1,6 @@
-# The Hedonism of Logging
+---
+title: The Hedonism of Logging
+---
 
 Imagine that you start training your model. You open tensorboard or wandb. You see curves, beautiful curves. They come in sparkling colors and some are related to losses others to metrics others even to the power consumption of your GPU. But nothing isn't that sublime as this moment that you look the curves develop through time, the suspense you have of what will happen, the feeling of surprise that meets you when after a night of beers with friends or wine (if you are in Paris), you come home and you open your logging program and you see that your loss smoothly approaches zero (or 0.082552924737).
 

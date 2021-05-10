@@ -1,4 +1,6 @@
-# Exploratory Directions and Concerns for the Future of Deep-Learning.
+---
+title: Exploratory Directions and Concerns for the Future of Deep-Learning
+---
 
 As I won't become a keynote speaker of an AI conference anytime soon, I decided to share some ideas about the future of Deep Learning. I will first propose some exploratory directions.
 

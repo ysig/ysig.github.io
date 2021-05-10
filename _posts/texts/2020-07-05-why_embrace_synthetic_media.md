@@ -41,7 +41,7 @@ This is where generative models such as GANs and Variational-Autoencoders, have 
 
 So synthetic media come at the intersection of what looks real and what can be generated and synthesized from reality.  
 
-![A Venn diagram of synthetic media.](synthetic_media.png)
+![A Venn diagram of synthetic media.](/synthetic_media.png)
 
 There is a bigger part of what exists that looks real and this is where synthesized realities can come and play a role.
 If an image is an object that can be thought outside of its standard context - the backstage of its shooting - then synthetic media can find a place to breathe.

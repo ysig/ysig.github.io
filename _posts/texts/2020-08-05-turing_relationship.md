@@ -1,5 +1,6 @@
-# From the turing-test to the turing-relationship!
-
+---
+title: From the turing-test to the turing-relationship!
+---
 Some time ago I was in Amorgos, a very beautiful Greek island, where a friend was hosting me in her house.
 It was a bit outside the port, in a very silent coastline on a hill above the sea.
 The house didn't have a constant water supply, like we have in the cities, so they had their own water collection site for rain and mountain water and they were pumping this water inside the house.

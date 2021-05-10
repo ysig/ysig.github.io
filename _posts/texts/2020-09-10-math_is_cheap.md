@@ -1,4 +1,6 @@
-# Math is cheap. Show me the code!
+---
+title: Math is cheap. Show me the code!
+---
 
 "Computers Speak a certain language, so there's a fast moving language that you have to learn. And then once you have done that, you just explain the mathematics but in that language; and the big problem is that in maths departments across the world, we're teaching people the mathematical ideas, but nobody is teaching them the language that these computers speak. Mathematics is not quite what it's sold ... We tell undergraduates that mathematics is this completely rigorous you know complete theory built from the axioms and in practice that's not how mathematics is done; computers are quite picky because they do want to know what's going on. So one challenge that we have faced is that people are slightly imprecise and computers don't buy it ... Before you wanna teach something to a computer, you need to understand it perfectly." [Kevin Buzzard](youtube.com/watch?v=HL7DEkXV_60)
 
