@@ -61,7 +61,7 @@ What it basically does, is enforcing a model on reality and make reality fit thi
 But this is not what science is supposed to do, but rather the opposite: embrace a both creative and conscious experience of reality. 
 
 
-![An Image from the paper of CyCADA summarizing a lot of what I've talked about: A combination of annotations, components, synthetic elements, architecture as in electronics and joint training of all the network.](cycada.png)>  
+![An Image from the paper of CyCADA summarizing a lot of what I've talked about: A combination of annotations, components, synthetic elements, architecture as in electronics and joint training of all the network.](/cycada.png)>  
 
 An Image from the paper of CyCADA summarizing a lot of what I've talked about: A combination of annotations, components, synthetic elements, architecture as in electronics and joint training of all the network.
 "CyCADA: Cycle-Consistent Adversarial Domain Adaptation" Judy Hoffman et al.

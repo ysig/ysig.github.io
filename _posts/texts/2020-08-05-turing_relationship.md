@@ -1,5 +1,5 @@
 ---
-title: From the turing-test to the turing-relationship!
+title: From the Turing-test to the Turing-relationship!
 ---
 Some time ago I was in Amorgos, a very beautiful Greek island, where a friend was hosting me in her house.
 It was a bit outside the port, in a very silent coastline on a hill above the sea.
