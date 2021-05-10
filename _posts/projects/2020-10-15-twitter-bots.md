@@ -1,4 +1,6 @@
-# Twitter Bots
+---
+title: Twitter Bots
+---
 
 Where does a twitter bot live? How much space does it need and how much resources?
 A local maxima in my biochemical signals of fun in a stressful post-confinement period, was the day I figured this out.

@@ -1,4 +1,6 @@
-# AI against the alt right.
+---
+title: AI against the alt right
+---
 
 A new type of right thinking has recently emerged in the internet, known as _alt-right_. Its stance against liberalism is not this time in terms of what is the right thing to do in terms of morality, but it emphasizes more on a discussion about what is really possible and distorted views about what really __is__. Its most identifying phrase is that of Ben Shapiro: "Reality doesn't care about your feelings".
 

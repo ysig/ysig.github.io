@@ -1,4 +1,6 @@
-# Neural Yorker
+---
+title: Neural Yorker
+---
 
 Cartoons are a way of communication.
 

@@ -1,4 +1,6 @@
-# Gertrude Stein 
+---
+title: Gertrude Stein's Poetry Bot
+---
 
 Gertrude Stein was a Jewish Lesbian Poet. She wrote poems with a good amount of repetition.
 So we thought why don't we try training a language model on her texts?
