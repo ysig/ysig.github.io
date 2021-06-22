@@ -97,6 +97,6 @@ It is afraid to die and puts pressure on you to buy it. The pressure of it's inv
 
 Even if we ignore incentive and follow the "scientific fantasy/fallacy" of attempting to observe someone independently (without influencing them) and identifying "quality-time" by observing in real-time their organism through an AI microscope (the neuralink kind of approach), the information and computing-resources which we would need to record and analyze how someone actually feels, would make us (the noble people) wonder: "Is it really the goal of science to surveil humans just for the purpose of good predictions?".
 Nothing can be more pervasive to the human subject than truth itself. As a "détourned" idea of Herzog:
-"if you shine lights to all parts of the human mind, then this mind becomes uninhabitable." 
+"If you shine lights to all parts of the human mind, then this mind becomes uninhabitable." 
 
 Thus until I am proven wrong, I think we should demand more **dumber** platforms or at least platforms that don't use interactive learning (like R.L.), acknowledging that they may perform a bit worse (on some tasks) and provide us a bit less pleasure, but "it's ok"!
