@@ -60,10 +60,10 @@ But YouTube is effectively an RL-system which tries to also influence you toward
 Without diving into the necessary discussion on whether an asymmetric (as it processes your information by the information it already has for all other people) large scale computational social entity can enforce it's predictive behavior on you, basically turning you into a normative category (something that I would call "computational peer pressure"), let's approach the YouTube paper clip problem in a more naïve way:
 
 One day you click on a proposed video (disobeying Jerome Lanier's advice) of an Italian recipe of "Aglio and Olio" from the addictive Italian-British cook Gennaro Contaldo.
-The next you click on proposed video by Vice Munchies about a something cool in Italy. The next you click on a video about fried chicken.
+Next, you click on a proposed video by Vice Munchies about something cool in Italy. Next, you click on a video about fried chicken.
 This is the end. Fried chicken is that an addictive form of content (see the visibility of Zack Choi's Muckbang channel for example) that the addiction of other people will multiply the relevancy of such a topic as a proposed one.
 It depends on how youtube categorizes your "taste" but long-story short what is going to happen is that if you click on a "fried chicken" video, you will have it on your feed forever.
-This was the case for me: I was waking up every morning and either opening YouTube or even my Google feed (part of the news feed of my Android Phone) I would get a proposal in the category of "fried chicken" to either read or see.
+This was the case for me: I was waking up every morning and either opening YouTube or even my Google feed (part of the news feed of my Android Phone) I would get a proposal in the category of "fried chicken" to either read or watch.
 
 I never expected that I would so clearly witness a case where artificial intelligence is that pervasive.
 Imagine how it would be if someone posted new "ads" all over your place every morning and some of them where always pictures of juicy fried chicken.
