@@ -8,7 +8,7 @@ This post is a détournement of the phrase of Linux Torvalds: "Talk is cheap; sh
 
 I adore math and I have no problem with it as a practice and I also encourage it.
 Everything can basically thought as math. All of logic even basic argumentation.
-It is certainly what makes a language of consistent and what secularizes a practice from intuitive subjectivisms, providing a clear projection of their structure.
+It is certainly what makes a language consistent and what secularizes a practice from intuitive subjectivisms, providing the means to knowledge.
 But the position of math in relation with Computer Science, has been for a big period a hierarchical one. Math says: 
 "Without us you would be nothing".
 
