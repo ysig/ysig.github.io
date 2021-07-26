@@ -81,7 +81,7 @@ It also became my main platform for any form education or entertainment: from ne
 In turn, this made me question all the things that I admired watching on this platform from political figures (like AOC) to philosophers (like Zizek), due to their addictive meme like character.
 
 I decided to write this article to expose my situation and challenge you to look deeper into YouTube's addictive aspect and most importantly to acknowledge that you are potentially part of its paperclip problem. Some people also refer to it as YouTube radicalizing aspect, but although I find this term to be accurate in certain regards, I find that it comes from an ideological standpoint of the balanced/civilized academic. 
-(We are living in a fucking social jungle (even in terms of desires), thus does YouTube facilitate it's emergence or produce it? - I think it does both of course, but the rigorousness required to address this, becomes a gatekeeping from non-academic studies.)
+(We are living in a fucking social jungle (even in terms of desires), thus does YouTube facilitate it's emergence or produce it? - I think it does both of course, but the rigorousness required to address this, becomes gatekeeping from non-academic studies and approaches.)
 
 # Dumber Platforms is all you need.
 Searching for a solution, someone would suggest to enrich the YouTube System with better objectives.
