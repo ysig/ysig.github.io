@@ -49,7 +49,7 @@ A system of addiction is much more than an addiction I would answer, but again y
 ## The Paper Clip Problem
 You may have heard about this problem. I actually learned it from Nick Bostrom (from his Google Talk on Super Intelligence, that I watched on YouTube).
 The idea is that an intelligent agent has been programmed to maximize the amount of paper clips it collects.
-In the end, after he has used all the available steel it starts destroying humans in order to extract from them the materials need to make paperclips.
+In the end, after it has used all the available steel it starts destroying humans in order to extract from them the materials need to make paperclips.
 What is interesting in this dystopic scenario, is that although the agent is super smart (as it finds a way of using humans to make paper clips), what it is trying to maximize is as silly as likes (or view-time).
 
 In general machine learning works by maximizing objectives. These objectives are in fact often really simple: we can understand them as paperclips themselves.
