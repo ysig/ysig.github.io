@@ -21,4 +21,4 @@ I know that *measurement*, comes with a suspense. I am sure there is a certain a
 But yet what does monitoring truly offer you? I mean it is good to know the speed you are going with or your blood pressure or even the time in your day, but where does this excitement come from?
 
 I am not sure yet, I haven't found out. But, it may be much better if we all think of it?
-If you have a similar story to report please share it :)
+If you have a similar story to share please do :)
