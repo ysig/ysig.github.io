@@ -2,13 +2,13 @@
 title: My Covid Eating Habits as a Youtube Paper Clip Problem.
 ---
 
-I like cooking or that's what people, like to circulate about me. YouTube thinks the same. Before Covid I wasn't watching cooking videos that much.
+I like cooking or that's at least what people like to circulate about me. YouTube thinks the same. Before Covid I wasn't watching cooking videos that much.
 I didn't know a lot about the FoodTube and neither was I watching that much of YouTube. At most, it was for me another form of entertainment.
 Today, I would say that I am addicted to YouTube. My hands have learned to open a new window, write 'y', 'o', 'u' and press "Enter" that fast, that it surely is a subliminal practice, which probably allows me to get distracted whenever I meet a difficulty.
 I realized this when I installed a program that would forbid me from entering YouTube.
 In the end I removed it, as I was using another browser to get to it.
 
-And in the beginning this was wonderful. I searched really cool music and watch interviews from really important scholars.
+And in the beginning this was wonderful. I searched really cool music and I watched interviews from really important scholars.
 But slowly I got hooked up again and I watched FoodTube or a Werner Herzog/Nassim Taleb interview, quality material one can argue, but it doesn't matter: they are all part of the YouTube addiction feedback loop.
 This is the answer to someone saying: "people used to watch television, YouTube is another form of it".
 Yeah, but this is a bit smarter: there are areas in the YouTube graph that are sinks, like black holes of a semantic structure, from which it's really difficult to escape.
