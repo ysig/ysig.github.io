@@ -279,10 +279,18 @@
             text-align: center;
         }
         
-        .main-image img {
+        .cover-desktop {
             max-width: 100%;
             height: auto;
             display: block;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        
+        .cover-mobile {
+            display: none;
+            max-width: 100%;
+            height: auto;
             margin: 0 auto;
             object-fit: contain;
         }
@@ -298,9 +306,13 @@
                 margin: 0.75rem auto;
             }
             
-            .main-image img {
-                object-fit: contain;
-                max-height: 400px;
+            .cover-desktop {
+                display: none;
+            }
+            
+            .cover-mobile {
+                display: block;
+                max-height: 500px;
                 width: auto;
                 max-width: 100%;
             }
@@ -528,7 +540,8 @@
     
     <main>
         <div class="main-image">
-            <img src="Cover.png" alt="Image Data Mining Research Visualization">
+            <img src="Cover.png" class="cover-desktop" alt="Image Data Mining Research Visualization">
+            <img src="Cover-vertical.png" class="cover-mobile" alt="Image Data Mining Research Visualization">
         </div>
         
         <div class="abstract-documents-section">
