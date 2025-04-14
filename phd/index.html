@@ -65,6 +65,23 @@
             justify-content: center;
             margin: 1rem 0;
             border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 480px) {
+            .tabs {
+                margin: 0.5rem 0;
+            }
+            
+            .attendance-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-label {
+                margin-bottom: 0.5rem;
+                margin-right: 0;
+            }
         }
         
         .tab-button {
@@ -139,6 +156,16 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
+            table-layout: fixed;
+        }
+        
+        @media (max-width: 480px) {
+            .committee-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
         }
         
         .committee-table th, .committee-table td {
@@ -247,7 +274,7 @@
         }
         
         .main-image {
-            margin: 2rem auto;
+            margin: 1.5rem auto;
             max-width: 800px;
             text-align: center;
         }
@@ -257,19 +284,37 @@
             height: auto;
             display: block;
             margin: 0 auto;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .main-image {
+                margin: 1rem auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-image {
+                margin: 0.75rem auto;
+            }
+            
+            .main-image img {
+                object-fit: cover;
+                max-height: 300px;
+            }
         }
         
         .map-container {
             width: 100%;
-            margin: 2rem 0;
+            margin: 0rem 0;
         }
         
         .map-container img {
             width: 100%;
             height: auto;
             display: block;
-            border: 1px solid #eee;
-            border-radius: 4px;
+            border: 0px solid #eee;
+            border-radius: 0px;
         }
         
         .video-container {
@@ -278,6 +323,18 @@
             width: 100%;
             padding-top: 56.25%; /* 16:9 Aspect Ratio */
             margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .video-container {
+                margin: 1.5rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-container {
+                margin: 1rem 0;
+            }
         }
         
         .video-container iframe {
@@ -310,7 +367,6 @@
             text-align: left;
             padding: 0rem;
             border-left: 0px solid #eee;
-            font-style: italic;
             font-size: 0.9rem;
             line-height: 1.5;
         }
@@ -326,6 +382,12 @@
             .abstract {
                 font-size: 0.8rem;
                 line-height: 1.3;
+                margin: 0 0.25rem;
+                text-align: justify;
+            }
+            
+            .abstract p {
+                margin-bottom: 0.75rem;
             }
         }
         
@@ -357,6 +419,16 @@
             width: 100%;
             border-collapse: collapse;
             margin-top: 1rem;
+            table-layout: fixed;
+        }
+        
+        @media (max-width: 480px) {
+            .documents-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
         }
         
         .documents-table th, .documents-table td {
@@ -383,6 +455,12 @@
             text-align: center;
         }
         
+        @media (max-width: 480px) {
+            .timeline-table {
+                font-size: 0.8rem;
+            }
+        }
+        
         .timeline-table td {
             padding: 0.5rem;
             border: 1px solid #eee;
@@ -395,13 +473,28 @@
         
         .map-caption {
             margin-top: 0.5rem;
-            font-size: 0.9rem;
+            font-size: 1rem;
             display: flex;
             justify-content: space-between;
             flex-wrap: nowrap;
             text-align: center;
             white-space: nowrap;
             overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: thin;
+        }
+        
+        @media (max-width: 768px) {
+            .map-caption {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .map-caption {
+                font-size: 0.8rem;
+                padding-bottom: 5px; /* Add space for the scrollbar */
+            }
         }
         
         .map-caption p {
@@ -421,13 +514,13 @@
 </head>
 <body>
     <header>
-        <h1>Image Data Mining via Synthesis</h1>
+        <h1><strong>Image Data Mining via Synthesis</strong></h1>
         <h2>PhD Defence</h2>
         <div class="personal-info">
             <p>Presented by <a href="https://ysig.github.io/" target="_blank"><strong>Yannis Siglidis</strong></a></p>
         </div>
         <div class="date-header">
-            5PM (CET) Friday the 16th of May, 2025 (<a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmNiYjZoYWgxODYwdjhzdXU1Y2pxMjFxZTggNnVhazBqbjhyZmRkZWk4bTFpbmw4OGJuZThAZw&amp;tmsrc=6uak0jn8rfddei8m1inl88bne8%40group.calendar.google.com">Calendar</a>)
+            5PM (<a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmNiYjZoYWgxODYwdjhzdXU1Y2pxMjFxZTggNnVhazBqbjhyZmRkZWk4bTFpbmw4OGJuZThAZw&amp;tmsrc=6uak0jn8rfddei8m1inl88bne8%40group.calendar.google.com">Calendar</a>) Friday the 16th of May, 2025
         </div>
     </header>
     
@@ -450,7 +543,7 @@
                             <tr>
                                 <th>Name</th>
                                 <th>Institution</th>
-                                <th>Role</th>
+                                <th>Jury Role</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -491,7 +584,7 @@
             <div class="tab-content abstract-content active">
                 <div class="abstract">
                     <p>
-Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes challenging to either describe using textual descriptions, or to manually ground textual descriptions onto visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of image data mining. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of an input label. In our second contribution, "Diffusion Models as Data Mining Tools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
+Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes it challenging to describe it using textual descriptions, or to manually ground existing textual descriptions to its visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of image data mining. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of an input label. In our second contribution, "Diffusion Models as Data Mining Tools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
                 </div>
             </div>
             
@@ -506,7 +599,7 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                             </tr>
                         </thead>
                         <tbody>
-                            <strong>Warning</strong> Currently a placeholder. Look again later...
+                            <strong>Warning:</strong> Currently a placeholder. Look again later...
                             <tr>
                                 <td><a href="acknowledgements.pdf">Acknowledgements</a></td>
                                 <td>Thesis acknowledgements</td>
@@ -547,7 +640,7 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
             
             <div class="tab-content physical-content active">
                 <div class="location-info">
-                    <h2> Timetable </h2>
+                    <h2> <strong>Timetable</strong> </h2>
                     <table class="timeline-table">
                         <tr class="time-row">
                             <td>5PM-6PM</td>
@@ -560,14 +653,15 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                             <td>Decision</td>
                         </tr>
                     </table>
+                    <h2> <strong>Access</strong> </h2>
                     <div class="map-container">
+                        <img src="path.png" alt="Path to Amphi Caquot 1">
                         <div class="map-caption">
                             <p><strong>Metro:</strong> <a href="https://g.co/kgs/2djdNr9" target="_blank">Noisy Champs <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/RER.svg/1024px-RER.svg.png?20201009145432" alt="RER" style="height: 1em; width: auto; vertical-align: middle; display: inline; margin: 0em 0em 0em 0em;"></a></p>
                             <p><strong>University:</strong> École Des Ponts</p>
                             <p><strong>Building:</strong> Coriolis</p>
                             <p><strong>Amphitheater:</strong> Caquot 1</p>
                         </div>
-                        <img src="path.png" alt="Path to Amphi Caquot 1">
                     </div>
                 </div>
             </div>
