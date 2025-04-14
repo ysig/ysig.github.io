@@ -503,29 +503,39 @@
         .map-caption {
             margin-top: 0.5rem;
             font-size: 1rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            grid-gap: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
             text-align: center;
+            width: 100%;
         }
         
         @media (max-width: 768px) {
             .map-caption {
                 font-size: 0.9rem;
-                grid-template-columns: repeat(2, 1fr);
             }
         }
         
         @media (max-width: 480px) {
             .map-caption {
                 font-size: 0.8rem;
+                display: grid;
                 grid-template-columns: repeat(2, 1fr);
+                grid-gap: 0.5rem;
             }
         }
         
         .map-caption p {
-            margin: 0.5rem;
-            padding: 0.25rem;
+            margin: 0 0.5rem;
+            white-space: nowrap;
+            flex: 1;
+        }
+        
+        @media (max-width: 480px) {
+            .map-caption p {
+                margin: 0.25rem;
+                white-space: normal;
+            }
         }
     </style>
 </head>
