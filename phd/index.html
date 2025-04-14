@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Mining via Synthesis</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cmuserif/1.0.0/cmunrm.css">
+    <style>
+        body {
+            font-family: 'CMU Serif', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+        }
+        
+        /* Tab styling */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            font-family: 'CMU Serif', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-button.active {
+            font-weight: bold;
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4a6eb0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-label {
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+            align-self: center;
+            color: #555;
+        }
+        
+        .attendance-tabs {
+            margin-top: 2rem;
+        }
+        
+        /* Committee section styling */
+        .committee-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .committee-table th, .committee-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .committee-table th {
+            background-color: #f9f9f9;
+            font-weight: normal;
+        }
+        
+        .institution {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .date-header {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .main-image {
+            margin: 2rem auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .main-image img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        .map-container {
+            width: 100%;
+            margin: 2rem 0;
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 2rem 0;
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .personal-info {
+            margin-top: 0rem;
+        }
+        
+        a {
+            color: #4a6eb0;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .abstract {
+            max-width: 800px;
+            margin: 0rem auto;
+            text-align: left;
+            padding: 0rem;
+            border-left: 0px solid #eee;
+            font-style: italic;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        .location-info, .livestream-info, .documents-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .date-time {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .location-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .location-details p {
+            margin: 0.5rem 0;
+        }
+        
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+        
+        .documents-table th, .documents-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .documents-table th {
+            background-color: #f9f9f9;
+            font-weight: normal;
+        }
+        
+        .file-size {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Timeline table styling */
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        .timeline-table td {
+            padding: 0.5rem;
+            border: 1px solid #eee;
+        }
+        
+        .time-row {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+        
+        .map-caption {
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            text-align: center;
+            white-space: nowrap;
+            overflow-x: auto;
+        }
+        
+        .map-caption p {
+            margin: 0 0.5rem;
+            flex: 0 1 auto;
+            display: inline-block;
+        }
+        
+        .map-caption p:first-child {
+            margin-left: 0;
+        }
+        
+        .map-caption p:last-child {
+            margin-right: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Image Data Mining via Synthesis</h1>
+        <h2>PhD Defense</h2>
+        <div class="personal-info">
+            <p>Presented by <a href="https://ysig.github.io/" target="_blank"><strong>Yannis Siglidis</strong></a></p>
+        </div>
+        <div class="date-header">
+            5PM (CET) Friday the 16th of May, 2025 (<a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmNiYjZoYWgxODYwdjhzdXU1Y2pxMjFxZTggNnVhazBqbjhyZmRkZWk4bTFpbmw4OGJuZThAZw&amp;tmsrc=6uak0jn8rfddei8m1inl88bne8%40group.calendar.google.com">Calendar</a>)
+        </div>
+    </header>
+    
+    <main>
+        <div class="main-image">
+            <img src="Cover.png" alt="Image Data Mining Research Visualization">
+        </div>
+        
+        <div class="abstract-documents-section">
+            <div class="tabs abstract-docs-tabs">
+                <button class="tab-button abstract-tab active">Abstract</button>
+                <button class="tab-button docs-tab">Thesis</button>
+                <button class="tab-button committee-tab">Committee</button>
+            </div>
+            
+            <div class="tab-content committee-content">
+                <div class="committee-section">
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Institution</th>
+                                <th>Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://people.eecs.berkeley.edu/~efros/" target="_blank">Alexei A. Efros</a></td>
+                                <td class="institution">UC Berkeley</td>
+                                <td>President</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.di.ens.fr/~ponce/" target="_blank">Jean Ponce</a></td>
+                                <td class="institution">École Normale Supérieure</td>
+                                <td>Reviewer</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.di.ens.fr/~josef/" target="_blank">Josef Sivic</a></td>
+                                <td class="institution">École Normale Supérieure</td>
+                                <td>Reviewer</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.hadarelor.com/" target="_blank">Hadar Averbuch-Elor</a></td>
+                                <td class="institution">Cornell University</td>
+                                <td>Examiner</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://shiry.ttic.edu/" target="_blank">Shiry Ginosar</a></td>
+                                <td class="institution">Toyota Institute of Technology</td>
+                                <td>Examiner</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://mathieuaubry.github.io/" target="_blank">Mathieu Aubry</a></td>
+                                <td class="institution">École Des Ponts ParisTech</td>
+                                <td>Advisor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content abstract-content active">
+                <div class="abstract">
+                    <p>
+Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes challenging to either describe using textual descriptions, or to manually ground textual descriptions onto visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of image data mining. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of an input label. In our second contribution, "Diffusion Models as Data Mining Tools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content docs-content">
+                <div class="documents-section">
+                    <table class="documents-table">
+                        <thead>
+                            <tr>
+                                <th>Document</th>
+                                <th>Description</th>
+                                <th>Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <strong>Warning</strong> Currently a placeholder. Look again later...
+                            <tr>
+                                <td><a href="acknowledgements.pdf">Acknowledgements</a></td>
+                                <td>Thesis acknowledgements</td>
+                                <td class="file-size">0.5 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="introduction.pdf">Introduction</a></td>
+                                <td>Introduction and research context</td>
+                                <td class="file-size">2.1 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="related_work.pdf">Related Work</a></td>
+                                <td>Review of prior research</td>
+                                <td class="file-size">3.4 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="thesis_no_appendix.pdf">Thesis (without Appendix)</a></td>
+                                <td>Complete thesis without appendices</td>
+                                <td class="file-size">8.2 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="thesis_full.pdf">Full Thesis</a></td>
+                                <td>Complete thesis with all appendices</td>
+                                <td class="file-size">12.7 MB</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <div class="attendance-section">
+            <div class="tabs attendance-tabs">
+                <span class="tab-label">Attendance: </span>
+                <button class="tab-button physical-tab active">Physical</button>
+                <button class="tab-button remote-tab">Virtual</button>
+            </div>
+            
+            <div class="tab-content physical-content active">
+                <div class="location-info">
+                    <h2> Timetable </h2>
+                    <table class="timeline-table">
+                        <tr class="time-row">
+                            <td>5PM-6PM</td>
+                            <td>6PM-7PM</td>
+                            <td>7PM-8PM</td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>Presentation</td>
+                            <td>Questions</td>
+                            <td>Decision</td>
+                        </tr>
+                    </table>
+                    <div class="map-container">
+                        <img src="path.png" alt="Path to Amphi Caquot 1">
+                        <div class="map-caption">
+                            <p><strong>Metro:</strong> <a href="https://g.co/kgs/2djdNr9" target="_blank">Noisy Champs <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/RER.svg/1024px-RER.svg.png?20201009145432" alt="RER" style="height: 1em; width: auto; vertical-align: middle; display: inline; margin: 0em 0em 0em 0em;"></a></p>
+                            <p><strong>University:</strong> École Des Ponts</p>
+                            <p><strong>Building:</strong> Coriolis</p>
+                            <p><strong>Amphitheater:</strong> Caquot 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content remote-content">
+                <div class="livestream-info">
+                    <p class="date-time">Live: 5PM-6PM (CET)</p>
+                    <p>The main part of the defense will be livestreamed on YouTube</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/P6jkFQW-oDg" 
+                                title="PhD Defense Livestream" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </main>
+    <!-- JavaScript for tab functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Attendance tabs
+            const physicalTab = document.querySelector('.physical-tab');
+            const remoteTab = document.querySelector('.remote-tab');
+            const physicalContent = document.querySelector('.physical-content');
+            const remoteContent = document.querySelector('.remote-content');
+            
+            physicalTab.addEventListener('click', function() {
+                physicalTab.classList.add('active');
+                remoteTab.classList.remove('active');
+                physicalContent.classList.add('active');
+                remoteContent.classList.remove('active');
+            });
+            
+            remoteTab.addEventListener('click', function() {
+                remoteTab.classList.add('active');
+                physicalTab.classList.remove('active');
+                remoteContent.classList.add('active');
+                physicalContent.classList.remove('active');
+            });
+            
+            // Abstract/Documents/Committee tabs
+            const abstractTab = document.querySelector('.abstract-tab');
+            const docsTab = document.querySelector('.docs-tab');
+            const committeeTab = document.querySelector('.committee-tab');
+            const abstractContent = document.querySelector('.abstract-content');
+            const docsContent = document.querySelector('.docs-content');
+            const committeeContent = document.querySelector('.committee-content');
+            
+            abstractTab.addEventListener('click', function() {
+                abstractTab.classList.add('active');
+                docsTab.classList.remove('active');
+                committeeTab.classList.remove('active');
+                abstractContent.classList.add('active');
+                docsContent.classList.remove('active');
+                committeeContent.classList.remove('active');
+            });
+            
+            docsTab.addEventListener('click', function() {
+                docsTab.classList.add('active');
+                abstractTab.classList.remove('active');
+                committeeTab.classList.remove('active');
+                docsContent.classList.add('active');
+                abstractContent.classList.remove('active');
+                committeeContent.classList.remove('active');
+            });
+            
+            committeeTab.addEventListener('click', function() {
+                committeeTab.classList.add('active');
+                abstractTab.classList.remove('active');
+                docsTab.classList.remove('active');
+                committeeContent.classList.add('active');
+                abstractContent.classList.remove('active');
+                docsContent.classList.remove('active');
+            });
+        });
+    </script>
+</body>
+</html>
