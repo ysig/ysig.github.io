@@ -72,16 +72,6 @@
             .tabs {
                 margin: 0.5rem 0;
             }
-            
-            .attendance-tabs {
-                flex-direction: column;
-                align-items: center;
-            }
-            
-            .tab-label {
-                margin-bottom: 0.5rem;
-                margin-right: 0;
-            }
         }
         
         .tab-button {
@@ -105,8 +95,8 @@
         
         @media (max-width: 480px) {
             .tab-button {
-                padding: 0.3rem 0.6rem;
-                margin: 0 0.2rem;
+                padding: 0.3rem 0.4rem;
+                margin: 0 0.1rem;
                 font-size: 0.8rem;
             }
         }
@@ -145,17 +135,17 @@
             display: flex;
             flex-wrap: nowrap;
             align-items: center;
+            justify-content: center;
         }
         
         @media (max-width: 480px) {
             .attendance-tabs {
-                flex-direction: column;
-                align-items: center;
+                /* Keep horizontal layout */
             }
             
             .tab-label {
-                margin-bottom: 0.5rem;
-                margin-right: 0;
+                font-size: 0.85rem;
+                margin-right: 0.2rem;
             }
         }
         
@@ -526,7 +516,7 @@
         }
         
         .map-caption p {
-            margin: 0 0.5rem;
+            margin: 0 0.2rem;
             white-space: nowrap;
             flex: 1;
         }
