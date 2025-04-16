@@ -85,6 +85,13 @@
             position: relative;
         }
         
+        .tab-button:focus {
+            outline: none;
+            background-color: transparent !important;
+            color: inherit !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
         @media (max-width: 768px) {
             .tab-button {
                 padding: 0.4rem 0.8rem;
@@ -103,6 +110,8 @@
         
         .tab-button.active {
             font-weight: bold;
+            background-color: transparent !important;
+            color: inherit !important;
         }
         
         .tab-button.active::after {
@@ -516,7 +525,7 @@
         }
         
         .map-caption p {
-            margin: 0 0.2rem;
+            margin: 0 0.05rem;
             white-space: nowrap;
             flex: 1;
         }
@@ -602,7 +611,7 @@
             <div class="tab-content abstract-content active">
                 <div class="abstract">
                     <p>
-Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes it challenging to describe using textual descriptions, or inversely to manually ground existing textual descriptions to visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of image data mining. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of an input label. In our second contribution, "Diffusion Models as Data Mining Tools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
+Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes it challenging to describe using textual descriptions, or inversely to manually ground existing textual descriptions to visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of <i>image&nbspdata&nbspmining</i>. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of the input label. In our second contribution, "Diffusion Models as Data Mining Tools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
                 </div>
             </div>
             
@@ -675,8 +684,8 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                     <div class="map-container">
                         <img src="path.png" alt="Path to Amphi Caquot 1">
                         <div class="map-caption">
-                            <p><strong>Metro:</strong> <a href="https://g.co/kgs/2djdNr9" target="_blank">Noisy Champs <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/RER.svg/1024px-RER.svg.png?20201009145432" alt="RER" style="height: 1em; width: auto; vertical-align: middle; display: inline; margin: 0em 0em 0em 0em;"></a></p>
-                            <p><strong>University:</strong> École Des Ponts</p>
+                            <p><strong>Metro:</strong> <a href="https://g.co/kgs/2djdNr9" target="_blank">Noisy Champs <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/RER.svg/1024px-RER.svg.png?20201009145432" alt="RER" style="height: 1em; width: auto; vertical-align: middle; display: inline; margin: 0em 1em 0em 0em;"></a></p>
+                            <p><strong>University:</strong> École&nbspDes&nbspPonts</p>
                             <p><strong>Building:</strong> Coriolis</p>
                             <p><strong>Amphitheater:</strong> Caquot 1</p>
                         </div>
