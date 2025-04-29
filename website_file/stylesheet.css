@@ -1,0 +1,49 @@
+.phenotypes{float:right;margin-top:-10px;}
+
+body {
+  color: black;
+  font-size:12px;letter-spacing:0.3px;
+  line-height:14px;
+  font-family: Helvetica,Arial,sans-serif;
+  margin-left:30px;
+  
+
+}
+.mainbox
+{
+	width:1000px;
+	text-align:left;	
+	border:none;	
+	overflow:hidden;
+	
+}
+
+p {
+  font-size:12px;letter-spacing:0.3px;
+  line-height:14px;
+}
+h1 {font-weight:normal; 
+  font-size:18px; letter-spacing:0.5px;
+  line-height:22px;
+
+}
+h2 {font-weight:normal;  margin-top:0px;
+  font-size:18px; letter-spacing:0.5px;
+  line-height:22px;
+
+}
+
+.text
+{
+	width: 530px;
+	margin-right:20px;
+	float:left;
+}
+
+img{border:1px solid #999999;
+}
+
+
+a:link {text-decoration:underline; color:#999999; }
+a:visited { text-decoration:underline; color:#999999;}
+a:hover { background-color:transparent; text-decoration: none;color:#666666; }
