@@ -286,7 +286,7 @@
                 font-size: 1rem;
             }
         }
-        
+ 
         .main-image {
             margin: 1.5rem auto;
             max-width: 800px;
@@ -536,6 +536,137 @@
                 white-space: normal;
             }
         }
+        
+        .pictures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .pictures-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .pictures-grid img:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .pictures-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 0.75rem;
+                padding: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pictures-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+        }
+        
+        /* Slideshow styling */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slideshow-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .slideshow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+            z-index: 2;
+        }
+
+        .slideshow-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-wrapper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slideshow-wrapper {
+                height: 300px;
+            }
+            
+            .slideshow-button {
+                padding: 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
     </style>
 </head>
 <body>
@@ -562,6 +693,8 @@
                 <button class="tab-button papers-tab">Presented Work</button>
                 <button class="tab-button docs-tab">Thesis</button>
                 <button class="tab-button committee-tab">Committee</button>
+                <button class="tab-button slides-tab">Slides</button>
+                <button class="tab-button pictures-tab">Pictures</button>
             </div>
             
             <div class="tab-content papers-content" id="papers">
@@ -683,9 +816,51 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                     </table>
                 </div>
             </div>
+            <div class="tab-content slides-content">
+                <div class="committee-section">
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1eBd6Vze6V6HFkUHH-eIRlAD8NCcLGIYFoWaPVEZFfAE/embed" 
+                                title="PhD Defence Slides" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content pictures-content">
+                <div class="committee-section">
+                    <div class="abstract">
+                        <p>
+                        Unfortunately no video remains, from the presentation. While I have tested going live on youtube, during the day of my thesis I clicked go live on youtube and directly changed tab to start my presentation. Only when I returned back to the youtube tab to close the live, I realized that it never got recorded due to thread parallelism/youtube implementation on chrome, as the thread froze, and went live directly when I return back "writing go live". The only artifact remain is my <a href="https://youtube.com/live/P6jkFQW-oDg?feature=share">"oh no"</a>. Still some content remains:
+                        </p>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1hRb1ukSmXRHgNidlT2Z6QK7IRpLo798_WGo4KovK3fk/embed" 
+                                title="PhD Defence Pictures" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content slides-content">
+                <div class="committee-section">
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1eBd6Vze6V6HFkUHH-eIRlAD8NCcLGIYFoWaPVEZFfAE/embed" 
+                                title="PhD Defence Slides" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
         </div>
         
         <div class="attendance-section">
+            <!-- Commented out access section
             <div class="tabs attendance-tabs">
                 <span class="tab-label">Attendance: </span>
                 <button class="tab-button physical-tab active">Physical</button>
@@ -717,7 +892,6 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                             <p><strong>Building:</strong> Coriolis</p>
                             <p><strong>Amphitheater:</strong> Caquot 1</p>
                         </div>
-                        
                     </div>
                 </div>
             </div>
@@ -736,6 +910,7 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                     </div>
                 </div>
             </div>
+            -->
         </div>
 
 
@@ -743,105 +918,96 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
     <!-- JavaScript for tab functionality -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Attendance tabs
-            const physicalTab = document.querySelector('.physical-tab');
-            const remoteTab = document.querySelector('.remote-tab');
-            const physicalContent = document.querySelector('.physical-content');
-            const remoteContent = document.querySelector('.remote-content');
+            const tabButtons = document.querySelectorAll('.abstract-docs-tabs .tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
             
-            physicalTab.addEventListener('click', function() {
-                physicalTab.classList.add('active');
-                remoteTab.classList.remove('active');
-                physicalContent.classList.add('active');
-                remoteContent.classList.remove('active');
-            });
-            
-            remoteTab.addEventListener('click', function() {
-                remoteTab.classList.add('active');
-                physicalTab.classList.remove('active');
-                remoteContent.classList.add('active');
-                physicalContent.classList.remove('active');
-            });
-            
-            // Abstract/Documents/Committee/Papers tabs
-            const abstractTab = document.querySelector('.abstract-tab');
-            const docsTab = document.querySelector('.docs-tab');
-            const committeeTab = document.querySelector('.committee-tab');
-            const papersTab = document.querySelector('.papers-tab');
-            const abstractContent = document.querySelector('.abstract-content');
-            const docsContent = document.querySelector('.docs-content');
-            const committeeContent = document.querySelector('.committee-content');
-            const papersContent = document.querySelector('.papers-content');
-            
-            abstractTab.addEventListener('click', function() {
-                setActiveTab(abstractTab, abstractContent);
-            });
-            
-            docsTab.addEventListener('click', function() {
-                setActiveTab(docsTab, docsContent);
-            });
-            
-            committeeTab.addEventListener('click', function() {
-                setActiveTab(committeeTab, committeeContent);
-            });
-            
-            papersTab.addEventListener('click', function() {
-                setActiveTab(papersTab, papersContent);
-            });
-
-            // Function to set the active tab
-            function setActiveTab(activeTab, activeContent) {
-                // Remove active class from all tabs and content
-                abstractTab.classList.remove('active');
-                docsTab.classList.remove('active');
-                committeeTab.classList.remove('active');
-                papersTab.classList.remove('active');
-                abstractContent.classList.remove('active');
-                docsContent.classList.remove('active');
-                committeeContent.classList.remove('active');
-                papersContent.classList.remove('active');
+            // Function to set active tab
+            function setActiveTab(activeButton) {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
                 
-                // Add active class to selected tab and content
-                activeTab.classList.add('active');
-                activeContent.classList.add('active');
+                // Add active class to clicked button
+                activeButton.classList.add('active');
                 
-                // Update URL hash
-                if (activeContent === papersContent) {
-                    history.replaceState(null, null, '#papers');
-                } else {
-                    history.replaceState(null, null, window.location.pathname);
+                // Find and activate corresponding content
+                const contentId = activeButton.classList[1].replace('-tab', '-content');
+                const activeContent = document.querySelector('.' + contentId);
+                if (activeContent) {
+                    activeContent.classList.add('active');
                 }
+                
+                // Special handling for pictures tab
+                if (activeButton.classList.contains('pictures-tab')) {
+                    loadPictures();
+                }
+            }
+            
+            // Add click event listeners to all tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => setActiveTab(button));
+            });
+            
+            // Function to load pictures from the pictures directory
+            async function loadPictures() {
+                const slideshowContainer = document.querySelector('.slideshow-container');
+                if (!slideshowContainer) return;
+
+                const slides = document.querySelectorAll('.slide');
+                const dotsContainer = document.querySelector('.slideshow-dots');
+                let currentSlide = 0;
+
+                // Create dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+
+                // Function to go to a specific slide
+                function goToSlide(index) {
+                    slides[currentSlide].classList.remove('active');
+                    document.querySelectorAll('.dot')[currentSlide].classList.remove('active');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+                }
+
+                // Add event listeners to buttons
+                document.querySelector('.prev').addEventListener('click', () => {
+                    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+                    goToSlide(newIndex);
+                });
+
+                document.querySelector('.next').addEventListener('click', () => {
+                    const newIndex = (currentSlide + 1) % slides.length;
+                    goToSlide(newIndex);
+                });
+
+                // Auto-advance slides every 5 seconds
+                setInterval(() => {
+                    const newIndex = (currentSlide + 1) % slides.length;
+                    goToSlide(newIndex);
+                }, 5000);
             }
             
             // Handle URL hash on page load
             if (window.location.hash === '#papers') {
-                // Select the papers tab
-                setActiveTab(papersTab, papersContent);
-                
-                // Also select physical tab in the attendance section
-                physicalTab.classList.add('active');
-                remoteTab.classList.remove('active');
-                physicalContent.classList.add('active');
-                remoteContent.classList.remove('active');
-                
-                // Scroll to top of page
-                window.scrollTo(0, 0);
+                const papersTab = document.querySelector('.papers-tab');
+                if (papersTab) {
+                    setActiveTab(papersTab);
+                }
             }
             
             // Handle hash changes
             window.addEventListener('hashchange', function() {
                 if (window.location.hash === '#papers') {
-                    // Select the papers tab
-                    setActiveTab(papersTab, papersContent);
-                    
-                    // Also select physical tab in the attendance section
-                    physicalTab.classList.add('active');
-                    remoteTab.classList.remove('active');
-                    physicalContent.classList.add('active');
-                    remoteContent.classList.remove('active');
-                    
-                    // Scroll to top of page
-                    window.scrollTo(0, 0);
+                    const papersTab = document.querySelector('.papers-tab');
+                    if (papersTab) {
+                        setActiveTab(papersTab);
+                    }
                 }
             });
         });
