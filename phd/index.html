@@ -1,0 +1,1530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Mining via Synthesis</title>
+    <style>
+        @font-face {
+            font-family: 'CMU Serif';
+            src: url('cmu-serif/cmunrm.ttf') format('truetype');
+            font-weight: normal;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'CMU Serif';
+            src: url('cmu-serif/cmunbx.ttf') format('truetype');
+            font-weight: bold;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'CMU Serif';
+            src: url('cmu-serif/cmunti.ttf') format('truetype');
+            font-weight: normal;
+            font-style: italic;
+        }
+        
+        @font-face {
+            font-family: 'CMU Serif';
+            src: url('cmu-serif/cmunbi.ttf') format('truetype');
+            font-weight: bold;
+            font-style: italic;
+        }
+    </style>
+    <style>
+        body {
+            font-family: 'CMU Serif', serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem;
+            line-height: 1.6;
+            color: #333;
+            text-align: center;
+            font-size: 16px;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+                font-size: 14px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            body {
+                padding: 0.75rem;
+                font-size: 13px;
+            }
+        }
+        
+        /* Tab styling */
+        .tabs {
+            display: flex;
+            justify-content: center;
+            margin: 1rem 0;
+            border-bottom: 1px solid #eee;
+            flex-wrap: wrap;
+        }
+        
+        @media (max-width: 480px) {
+            .tabs {
+                margin: 0.5rem 0;
+            }
+        }
+        
+        .tab-button {
+            background: none;
+            border: none;
+            padding: 0.5rem 1rem;
+            margin: 0 0.5rem;
+            font-family: 'CMU Serif', serif;
+            font-size: 1rem;
+            cursor: pointer;
+            position: relative;
+        }
+        
+        .tab-button:focus {
+            outline: none;
+            background-color: transparent !important;
+            color: inherit !important;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        @media (max-width: 768px) {
+            .tab-button {
+                padding: 0.4rem 0.8rem;
+                margin: 0 0.3rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .tab-button {
+                padding: 0.3rem 0.4rem;
+                margin: 0 0.1rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        .tab-button.active {
+            font-weight: bold;
+            background-color: transparent !important;
+            color: inherit !important;
+        }
+        
+        .tab-button.active::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: #4a6eb0;
+        }
+        
+        .tab-content {
+            display: none;
+        }
+        
+        .tab-content.active {
+            display: block;
+        }
+        
+        .tab-label {
+            font-size: 1.1rem;
+            margin-right: 0.5rem;
+            align-self: center;
+            color: #555;
+        }
+        
+        .attendance-tabs {
+            margin-top: 2rem;
+            display: flex;
+            flex-wrap: nowrap;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        @media (max-width: 480px) {
+            .attendance-tabs {
+                /* Keep horizontal layout */
+            }
+            
+            .tab-label {
+                font-size: 0.85rem;
+                margin-right: 0.2rem;
+            }
+        }
+        
+        /* Committee section styling */
+        .committee-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .committee-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            table-layout: fixed;
+        }
+        
+        @media (max-width: 480px) {
+            .committee-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        .committee-table th, .committee-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .committee-table th, .committee-table td {
+                padding: 0.5rem;
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .committee-table th, .committee-table td {
+                padding: 0.4rem;
+                font-size: 0.8rem;
+            }
+        }
+        
+        .committee-table th {
+            background-color: #f9f9f9;
+            font-weight: normal;
+        }
+        
+        .institution {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 480px) {
+            .institution {
+                font-size: 0.75rem;
+            }
+        }
+        
+        .date-header {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .date-header {
+                font-size: 1.1rem;
+                margin-bottom: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .date-header {
+                font-size: 1rem;
+                margin-bottom: 1rem;
+            }
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        
+        h2 {
+            font-size: 1.5rem;
+            margin-top: 0.5rem;
+            font-weight: normal;
+            margin-bottom: 1rem;
+        }
+        
+        h3 {
+            font-size: 1.25rem;
+            font-weight: normal;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.3rem;
+            }
+            
+            h3 {
+                font-size: 1.1rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            h2 {
+                font-size: 1.2rem;
+            }
+            
+            h3 {
+                font-size: 1rem;
+            }
+        }
+ 
+        .main-image {
+            margin: 1.5rem auto;
+            max-width: 800px;
+            text-align: center;
+        }
+        
+        .cover-desktop {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        
+        .cover-mobile {
+            display: none;
+            max-width: 100%;
+            height: auto;
+            margin: 0 auto;
+            object-fit: contain;
+        }
+        
+        @media (max-width: 768px) {
+            .main-image {
+                margin: 1rem auto;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .main-image {
+                margin: 0.75rem auto;
+            }
+            
+            .cover-desktop {
+                display: none;
+            }
+            
+            .cover-mobile {
+                display: block;
+                max-height: 500px;
+                width: auto;
+                max-width: 100%;
+            }
+        }
+        
+        .map-container {
+            width: 100%;
+            margin: 0rem 0;
+        }
+        
+        .map-container img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border: 0px solid #eee;
+            border-radius: 0px;
+        }
+        
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            margin: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .video-container {
+                margin: 1.5rem 0;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .video-container {
+                margin: 1rem 0;
+            }
+        }
+        
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        .personal-info {
+            margin-top: 0rem;
+        }
+        
+        a {
+            color: #4a6eb0;
+            text-decoration: none;
+        }
+        
+        a:hover {
+            text-decoration: underline;
+        }
+        
+        .abstract {
+            max-width: 100%;
+            margin: 0rem auto;
+            text-align: left;
+            padding: 0rem;
+            border-left: 0px solid #eee;
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        @media (max-width: 768px) {
+            .abstract {
+                font-size: 0.85rem;
+                line-height: 1.4;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .abstract {
+                font-size: 0.8rem;
+                line-height: 1.3;
+                margin: 0 0.25rem;
+                text-align: justify;
+            }
+            
+            .abstract p {
+                margin-bottom: 0.75rem;
+            }
+        }
+        
+        .location-info, .livestream-info, .documents-section {
+            margin-top: 2rem;
+            padding: 1rem;
+            border: 1px solid #eee;
+            border-radius: 4px;
+        }
+        
+        .date-time {
+            font-weight: bold;
+            margin-top: 1rem;
+        }
+        
+        .location-details {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 0rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .location-details p {
+            margin: 0.5rem 0;
+        }
+        
+        .documents-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+            table-layout: fixed;
+        }
+        
+        @media (max-width: 480px) {
+            .documents-table {
+                display: block;
+                overflow-x: auto;
+                white-space: nowrap;
+                -webkit-overflow-scrolling: touch;
+            }
+        }
+        
+        .documents-table th, .documents-table td {
+            padding: 0.75rem;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .documents-table th {
+            background-color: #f9f9f9;
+            font-weight: normal;
+        }
+        
+        .file-size {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        /* Timeline table styling */
+        .timeline-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            text-align: center;
+        }
+        
+        @media (max-width: 480px) {
+            .timeline-table {
+                font-size: 0.8rem;
+            }
+        }
+        
+        .timeline-table td {
+            padding: 0.5rem;
+            border: 1px solid #eee;
+        }
+        
+        .time-row {
+            background-color: #f9f9f9;
+            font-weight: bold;
+        }
+        
+        .map-caption {
+            margin-top: 0.5rem;
+            font-size: 1rem;
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: nowrap;
+            text-align: center;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .map-caption {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .map-caption {
+                font-size: 0.8rem;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                grid-gap: 0.5rem;
+            }
+        }
+        
+        .map-caption p {
+            margin: 0 0.05rem;
+            white-space: nowrap;
+            flex: 1;
+        }
+        
+        @media (max-width: 480px) {
+            .map-caption p {
+                margin: 0.25rem;
+                white-space: normal;
+            }
+        }
+        
+        .pictures-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1rem;
+            padding: 1rem;
+        }
+        
+        .pictures-grid img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            transition: transform 0.2s ease-in-out;
+        }
+        
+        .pictures-grid img:hover {
+            transform: scale(1.05);
+        }
+        
+        @media (max-width: 768px) {
+            .pictures-grid {
+                grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+                gap: 0.75rem;
+                padding: 0.75rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .pictures-grid {
+                grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+                gap: 0.5rem;
+                padding: 0.5rem;
+            }
+        }
+        
+        /* Slideshow styling */
+        .slideshow-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+
+        .slideshow-wrapper {
+            position: relative;
+            width: 100%;
+            height: 500px;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+            display: none;
+        }
+
+        .slide.active {
+            opacity: 1;
+            display: block;
+        }
+
+        .slideshow-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            padding: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: background 0.3s;
+            z-index: 2;
+        }
+
+        .slideshow-button:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .prev {
+            left: 0;
+        }
+
+        .next {
+            right: 0;
+        }
+
+        .slideshow-dots {
+            position: absolute;
+            bottom: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 0.5rem;
+            z-index: 2;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.5);
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .dot.active {
+            background: white;
+        }
+
+        @media (max-width: 768px) {
+            .slideshow-wrapper {
+                height: 400px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .slideshow-wrapper {
+                height: 300px;
+            }
+            
+            .slideshow-button {
+                padding: 0.5rem;
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1><strong>Image&nbspMining via&nbspSynthesis</strong></h1>
+        <h2>PhD Defence</h2>
+        <div class="personal-info">
+            <p>Presented by <a href="https://ysig.github.io/" target="_blank"><strong>Yannis Siglidis</strong></a></p>
+        </div>
+        <div class="date-header">
+            5PM (<a target="_blank" href="https://calendar.google.com/calendar/event?action=TEMPLATE&amp;tmeid=NmNiYjZoYWgxODYwdjhzdXU1Y2pxMjFxZTggNnVhazBqbjhyZmRkZWk4bTFpbmw4OGJuZThAZw&amp;tmsrc=6uak0jn8rfddei8m1inl88bne8%40group.calendar.google.com">Calendar</a>) Friday the 16th of May, 2025
+        </div>
+    </header>
+    
+    <main>
+        <div class="main-image">
+            <img src="Cover.png" class="cover-desktop" alt="Image Data Mining Research Visualization">
+            <img src="Cover-vertical.png" class="cover-mobile" alt="Image Data Mining Research Visualization">
+        </div>
+        
+        <div class="abstract-documents-section">
+            <div class="tabs abstract-docs-tabs">
+                <button class="tab-button abstract-tab active">Abstract</button>
+                <button class="tab-button papers-tab">Presented Work</button>
+                <button class="tab-button docs-tab">Thesis</button>
+                <button class="tab-button committee-tab">Committee</button>
+                <button class="tab-button slides-tab">Slides</button>
+                <button class="tab-button pictures-tab">Pictures</button>
+            </div>
+            
+            <div class="tab-content papers-content" id="papers">
+                <div class="committee-section">
+                    <div class="abstract">
+
+                        <p><span style="font-size: 17px;">The Learnable Typewriter: A Generative Approach to Text Analysis.</span><br>
+                            <strong>Ioannis Siglidis</strong>, Nicolas Gonthier, Juliette Gaubil, Tom Monnier, and Mathieu Aubry.<br>
+                            In International Conference on Document Analysis and Recognition (ICDAR), 2024.<br>
+                            ↳ <a href="https://learnable-typewriter.github.io/" target="_blank">webpage</a>, <a href="https://learnable-typewriter.github.io/" target="_blank">chapter</a>.
+                        <p><span style="font-size: 17px;">An Interpretable Deep Learning Approach for Morphological Script Type Analysis.</span><br>
+                            Malamatenia Vlachou-Efstathiou, <strong>Ioannis Siglidis</strong>, Dominique Stutzann, and Mathieu Aubry.<br>
+                            In International Workshop on Computational Paleography (IWCP), 2024.<br>
+                            ↳ <a href="https://learnable-handwriter.github.io/" target="_blank">webpage</a>, <a href="https://learnable-handwriter.github.io/" target="_blank">chapter</a>.
+                        </p>
+                        <p><span style="font-size: 17px;">Diffusion Models as Data Mining Tools.</span><br>
+                            <strong>Ioannis Siglidis</strong>, Aleksander Holynski, Alexei A. Efros, Mathieu Aubry, and Shiry Ginosar.<br>
+                            In European Conference on Computer Vision (ECCV), 2024.<br>
+                            ↳ <a href="https://diff-mining.github.io/" target="_blank">webpage</a>, <a href="https://diff-mining.github.io/" target="_blank">chapter</a>.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content committee-content">
+                <div class="committee-section">
+                    <table class="committee-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Institution</th>
+                                <th>Jury Role</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><a href="https://people.eecs.berkeley.edu/~efros/" target="_blank">Alexei A. Efros</a></td>
+                                <td class="institution">UC Berkeley</td>
+                                <td>President</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.di.ens.fr/~ponce/" target="_blank">Jean Ponce</a></td>
+                                <td class="institution">École Normale Supérieure</td>
+                                <td>Reviewer</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.di.ens.fr/~josef/" target="_blank">Josef Sivic</a></td>
+                                <td class="institution">Czech Technical University</td>
+                                <td>Reviewer</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://www.hadarelor.com/" target="_blank">Hadar Averbuch-Elor</a></td>
+                                <td class="institution">Cornell University</td>
+                                <td>Examiner</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://shiry.ttic.edu/" target="_blank">Shiry Ginosar</a></td>
+                                <td class="institution">Toyota Institute of Technology</td>
+                                <td>Examiner</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://mathieuaubry.github.io/" target="_blank">Mathieu Aubry</a></td>
+                                <td class="institution">École Des Ponts ParisTech</td>
+                                <td>Advisor</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content abstract-content active">
+                <div class="abstract">
+                    <p>
+Image archives contain lots of hidden knowledge that researchers in the digital humanities would like to discover at scale. Much of this knowledge is visual, which makes it challenging to describe using textual descriptions, or inversely to manually ground existing textual descriptions to visual evidence. Given collections of images that are identified by general predefined classes, for example a type of script or the name of a country, the goal of this thesis is to develop machine learning approaches that can mine informative visual structure hiding behind those labels. Our work focuses on two specific problems of <i>image&nbspdata&nbspmining</i>. The first, is to summarize and help refine existing typologies of handwritten characters. Character morphology has been central to the field of palaeography, where existing typologies are described through textual descriptions, hindering qualitative analysis. Our first contribution, the "Learnable Typewriter" achieves an explicit decomposition of a manuscript's text lines into small images of characters called sprites, which allows for an interpretable quantitative comparison. The second problem, is to summarize the visual structure that makes images, typical of their assigned label. Analyzing historical, or cultural image datasets, by counting the presence of predefined attributes often provides very general observations that can't focus on the visual details that are typical of the input label. In our second contribution, "Diffusion&nbspModels&nbspas&nbspData&nbspMining&nbspTools", we leverage the abstract and scalable compositional synthesis capabilities of diffusion models to mine typical visual vocabularies from versatile labeled datasets, including portraits, geographical images, and scenes, of the order of thousand to million images.</p>
+                </div>
+            </div>
+            
+            <div class="tab-content docs-content">
+                <div class="documents-section">
+                    <table class="documents-table">
+                        <thead>
+                            <tr>
+                                <th>Document</th>
+                                <th>Description</th>
+                                <th>Size</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <strong>Warning:</strong> For the final version of my thesis, please wait for the day of my defence.
+                            <tr>
+                                <td><a href="acknowledgments.pdf">Acknowledgements</a></td>
+                                <td>Thesis acknowledgements</td>
+                                <td class="file-size">120 KB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="https://drive.google.com/file/d/1i-3nn-YqKo8qHQWCM9MJ6NSlZNZ7Hlhb/view?usp=sharing">Thesis</a></td>
+                                <td>(printed)</td>
+                                <td class="file-size">847 MB</td>
+                            </tr>
+<!--                             <tr>
+                                <td><a href="introduction.pdf">Introduction</a></td>
+                                <td>Introduction and research context</td>
+                                <td class="file-size">2.1 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="related_work.pdf">Related Work</a></td>
+                                <td>Review of prior research</td>
+                                <td class="file-size">3.4 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="thesis_no_appendix.pdf">Thesis (without Appendix)</a></td>
+                                <td>Complete thesis without appendices</td>
+                                <td class="file-size">8.2 MB</td>
+                            </tr>
+                            <tr>
+                                <td><a href="thesis_full.pdf">Full Thesis</a></td>
+                                <td>Complete thesis with all appendices</td>
+                                <td class="file-size">12.7 MB</td>
+                            </tr> -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="tab-content slides-content">
+                <div class="committee-section">
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1eBd6Vze6V6HFkUHH-eIRlAD8NCcLGIYFoWaPVEZFfAE/embed" 
+                                title="PhD Defence Slides" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content pictures-content">
+                <div class="committee-section">
+                    <div class="abstract">
+                        <p>
+                        Unfortunately no video remains, from the presentation. While I have tested going live on youtube, during the day of my thesis I clicked go live on youtube and directly changed tab to start my presentation. Only when I returned back to the youtube tab to close the live, I realized that it never got recorded due to thread parallelism/youtube implementation on chrome, as the thread froze, and went live directly when I return back "writing go live". The only artifact remain is my <a href="https://youtube.com/live/P6jkFQW-oDg?feature=share">"oh no"</a>. Still some content remains:
+                        </p>
+                    </div>
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1hRb1ukSmXRHgNidlT2Z6QK7IRpLo798_WGo4KovK3fk/embed" 
+                                title="PhD Defence Pictures" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-content slides-content">
+                <div class="committee-section">
+                    <div class="video-container">
+                        <iframe src="https://docs.google.com/presentation/d/1eBd6Vze6V6HFkUHH-eIRlAD8NCcLGIYFoWaPVEZFfAE/embed" 
+                                title="PhD Defence Slides" 
+                                frameborder="0" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        
+        <div class="attendance-section">
+            <!-- Commented out access section
+            <div class="tabs attendance-tabs">
+                <span class="tab-label">Attendance: </span>
+                <button class="tab-button physical-tab active">Physical</button>
+                <button class="tab-button remote-tab">Virtual</button>
+            </div>
+            
+            <div class="tab-content physical-content active">
+                <div class="location-info">
+                    <h2> <strong>Timetable</strong> </h2>
+                    <table class="timeline-table">
+                        <tr class="time-row">
+                            <td>5PM-6PM</td>
+                            <td>6PM-7PM</td>
+                            <td>7PM-8PM</td>
+                        </tr>
+                        <tr class="event-row">
+                            <td>Presentation</td>
+                            <td>Questions</td>
+                            <td>Decision</td>
+                        </tr>
+                    </table>
+                    <h2> <strong>Access</strong> (<a href="https://maps.app.goo.gl/jqguLCsNqDqK486AA" target="_blank"><strong>map</strong></a>, <a href="path.mp4" target="_blank"><strong>video</strong></a>) </h2> 
+                    
+                    <div class="map-container">
+                        <img src="path.png" alt="Path to Amphi Caquot 1">
+                        <div class="map-caption">
+                            <p><strong>Metro:</strong> <a href="https://g.co/kgs/2djdNr9" target="_blank">Noisy Champs <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/1/13/RER.svg/1024px-RER.svg.png?20201009145432" alt="RER" style="height: 1em; width: auto; vertical-align: middle; display: inline; margin: 0em 1em 0em 0em;"></a></p>
+                            <p><strong>University:</strong> École&nbspDes&nbspPonts</p>
+                            <p><strong>Building:</strong> Coriolis</p>
+                            <p><strong>Amphitheater:</strong> Caquot 1</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content remote-content">
+                <div class="livestream-info">
+                    <p class="date-time">Live: 5PM-6PM (CET)</p>
+                    <p>The main part of the defence will be livestreamed on YouTube</p>
+                    <div class="video-container">
+                        <iframe src="https://www.youtube.com/embed/P6jkFQW-oDg" 
+                                title="PhD Defence Livestream" 
+                                frameborder="0" 
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                allowfullscreen>
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+            -->
+        </div>
+
+
+    </main>
+    <!-- JavaScript for tab functionality -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.abstract-docs-tabs .tab-button');
+            const tabContents = document.querySelectorAll('.tab-content');
+            
+            // Function to set active tab
+            function setActiveTab(activeButton) {
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(button => button.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button
+                activeButton.classList.add('active');
+                
+                // Find and activate corresponding content
+                const contentId = activeButton.classList[1].replace('-tab', '-content');
+                const activeContent = document.querySelector('.' + contentId);
+                if (activeContent) {
+                    activeContent.classList.add('active');
+                }
+                
+                // Special handling for pictures tab
+                if (activeButton.classList.contains('pictures-tab')) {
+                    loadPictures();
+                }
+            }
+            
+            // Add click event listeners to all tab buttons
+            tabButtons.forEach(button => {
+                button.addEventListener('click', () => setActiveTab(button));
+            });
+            
+            // Function to load pictures from the pictures directory
+            async function loadPictures() {
+                const slideshowContainer = document.querySelector('.slideshow-container');
+                if (!slideshowContainer) return;
+
+                const slides = document.querySelectorAll('.slide');
+                const dotsContainer = document.querySelector('.slideshow-dots');
+                let currentSlide = 0;
+
+                // Create dots
+                slides.forEach((_, index) => {
+                    const dot = document.createElement('div');
+                    dot.classList.add('dot');
+                    if (index === 0) dot.classList.add('active');
+                    dot.addEventListener('click', () => goToSlide(index));
+                    dotsContainer.appendChild(dot);
+                });
+
+                // Function to go to a specific slide
+                function goToSlide(index) {
+                    slides[currentSlide].classList.remove('active');
+                    document.querySelectorAll('.dot')[currentSlide].classList.remove('active');
+                    currentSlide = index;
+                    slides[currentSlide].classList.add('active');
+                    document.querySelectorAll('.dot')[currentSlide].classList.add('active');
+                }
+
+                // Add event listeners to buttons
+                document.querySelector('.prev').addEventListener('click', () => {
+                    const newIndex = (currentSlide - 1 + slides.length) % slides.length;
+                    goToSlide(newIndex);
+                });
+
+                document.querySelector('.next').addEventListener('click', () => {
+                    const newIndex = (currentSlide + 1) % slides.length;
+                    goToSlide(newIndex);
+                });
+
+                // Auto-advance slides every 5 seconds
+                setInterval(() => {
+                    const newIndex = (currentSlide + 1) % slides.length;
+                    goToSlide(newIndex);
+                }, 5000);
+            }
+            
+            // Handle URL hash on page load
+            if (window.location.hash === '#papers') {
+                const papersTab = document.querySelector('.papers-tab');
+                if (papersTab) {
+                    setActiveTab(papersTab);
+                }
+            }
+            
+            // Handle hash changes
+            window.addEventListener('hashchange', function() {
+                if (window.location.hash === '#papers') {
+                    const papersTab = document.querySelector('.papers-tab');
+                    if (papersTab) {
+                        setActiveTab(papersTab);
+                    }
+                }
+            });
+        });
+    </script>
+    
+    <!-- Dripping Water Effect Script -->
+    <script>
+        // Dripping Water Effect - Image Crops
+const drippingEffect = () => {
+  // Arrays of image sources categorized by type
+  // Typography images for left side of screen
+  const leftSideImages = [
+    'images-mouse/fig3ra.jpg',
+    'images-mouse/fig4ra.jpg'
+  ];
+  
+  // Special images for right side of screen
+  const rightSideImages = [
+    'images-mouse/cardb.png',
+    'images-mouse/ftt.png',
+    'images-mouse/g3.png',
+    'images-mouse/places.png'
+  ];
+  
+  // Combined array for initial loading
+  const imageSources = [...leftSideImages, ...rightSideImages];
+  
+  // Preload images for later use - we'll create separate arrays for each side
+  const preloadedImages = [];
+  const leftImages = [];
+  const rightImages = [];
+  
+  // Class to handle each dripping droplet
+  class Droplet {
+    constructor(x, y, imageData) {
+      // Position
+      this.x = x;
+      this.y = y;
+      
+      // Determine if this droplet will float up (1% chance) or down (99% chance)
+      const floatsUp = Math.random() < 0.01; // 1% chance to float upward
+      this.floatsUp = floatsUp; // Store this property for use in drawing
+      
+      // Initial velocity with random direction (resembling water dripping)
+      const angle = Math.random() * Math.PI * 2; // Full 360 degree range for random direction
+      const speed = 0.5 + Math.random() * 2.5;
+      this.vx = Math.cos(angle) * speed;
+      
+      if (floatsUp) {
+        // For upward floating patches, reverse gravity effect
+        this.vy = Math.sin(angle) * speed - 0.8; // Upward bias
+        this.gravity = -0.1 - Math.random() * 0.1; // Negative gravity (accelerates upward)
+      } else {
+        // Normal downward dripping
+        this.vy = Math.sin(angle) * speed + 0.8; // Add a bit of downward bias for gravity
+        this.gravity = 0.1 + Math.random() * 0.1; // Normal positive gravity
+      }
+      
+      // Size (5-15 pixels as requested)
+      this.size = 5 + Math.floor(Math.random() * 11);
+      
+      // Drip lifetime
+      this.life = 100 + Math.random() * 200;
+      this.age = 0;
+      
+      // The image data to render
+      this.imageData = imageData;
+      
+      // Opacity
+      this.opacity = 0.8 + Math.random() * 0.2;
+      
+      // Drip trail
+      this.trail = [];
+      this.trailLength = 3 + Math.floor(Math.random() * 5);
+    }
+    
+    update() {
+      // Add to trail
+      if (this.trail.length >= this.trailLength) {
+        this.trail.shift();
+      }
+      this.trail.push({x: this.x, y: this.y, opacity: this.opacity});
+      
+      // Update position
+      this.vy += this.gravity;
+      this.x += this.vx;
+      this.y += this.vy;
+      
+      // Age the droplet
+      this.age++;
+      
+      // Fade out as it ages
+      if (this.age > this.life * 0.7) {
+        this.opacity = Math.max(0, this.opacity - 0.01);
+      }
+      
+      // Return true if still alive
+      return this.age < this.life && this.opacity > 0;
+    }
+    
+    draw(ctx) {
+      // For upward floating droplets, apply a subtle visual effect
+      if (this.floatsUp) {
+        // Apply a rotation to the context for upward floating droplets
+        ctx.save();
+        
+        // Rotate slightly based on age to create a gentle spinning effect
+        const rotation = this.age * 0.05;
+        ctx.translate(this.x, this.y);
+        ctx.rotate(rotation);
+        
+        // Draw trail with slight color shift for upward floating droplets
+        for (let i = 0; i < this.trail.length; i++) {
+          const point = this.trail[i];
+          const distX = point.x - this.x;
+          const distY = point.y - this.y;
+          const trailOpacity = (i / this.trail.length) * point.opacity * 0.6; // Slightly more visible trail
+          
+          ctx.globalAlpha = trailOpacity;
+          ctx.drawImage(
+            this.imageData, 
+            -this.size / 2 + distX, 
+            -this.size / 2 + distY, 
+            this.size, 
+            this.size
+          );
+        }
+        
+        // Draw droplet
+        ctx.globalAlpha = this.opacity;
+        ctx.drawImage(
+          this.imageData, 
+          -this.size / 2, 
+          -this.size / 2, 
+          this.size, 
+          this.size
+        );
+        
+        ctx.restore();
+      } else {
+        // Regular downward dripping droplets - original code
+        // Draw trail
+        for (let i = 0; i < this.trail.length; i++) {
+          const point = this.trail[i];
+          const trailOpacity = (i / this.trail.length) * point.opacity * 0.5;
+          
+          ctx.globalAlpha = trailOpacity;
+          ctx.drawImage(
+            this.imageData, 
+            point.x - this.size / 2, 
+            point.y - this.size / 2, 
+            this.size, 
+            this.size
+          );
+        }
+        
+        // Draw droplet
+        ctx.globalAlpha = this.opacity;
+        ctx.drawImage(
+          this.imageData, 
+          this.x - this.size / 2, 
+          this.y - this.size / 2, 
+          this.size, 
+          this.size
+        );
+      }
+    }
+  }
+  
+  // Create canvas and add to DOM
+  const canvas = document.createElement('canvas');
+  canvas.setAttribute('data-dripping-effect', 'true');
+  document.body.appendChild(canvas);
+  
+  // Position canvas as overlay
+  canvas.style.position = 'fixed';
+  canvas.style.top = '0';
+  canvas.style.left = '0';
+  canvas.style.width = '100%';
+  canvas.style.height = '100%';
+  canvas.style.pointerEvents = 'none'; // Allow clicks to pass through
+  canvas.style.zIndex = '999'; // Place above other elements
+  
+  // Set canvas size to match window
+  const resizeCanvas = () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  };
+  
+  window.addEventListener('resize', resizeCanvas);
+  resizeCanvas();
+  
+  const ctx = canvas.getContext('2d');
+  
+  // Array to store active droplets
+  const droplets = [];
+  
+  // Mouse position tracking
+  let mouseX = 0;
+  let mouseY = 0;
+  let isMouseMoving = false;
+  let lastMouseX = 0;
+  let lastMouseY = 0;
+  
+  // Load all images and store them by category
+  const loadImages = async () => {
+    for (const src of imageSources) {
+      const img = new Image();
+      img.src = src;
+      try {
+        await new Promise((resolve, reject) => {
+          img.onload = resolve;
+          img.onerror = reject;
+        });
+        
+        // Add to main array
+        preloadedImages.push(img);
+        
+        // Also add to the appropriate category array
+        if (leftSideImages.includes(src)) {
+          leftImages.push(img);
+        } else if (rightSideImages.includes(src)) {
+          rightImages.push(img);
+        }
+        
+        console.log(`Loaded image: ${src}`);
+      } catch (error) {
+        console.warn(`Failed to load image: ${src}`);
+      }
+    }
+    console.log(`Successfully loaded ${preloadedImages.length} images for dripping effect`);
+    console.log(`Left side: ${leftImages.length}, Right side: ${rightImages.length}`);
+  };
+  
+  // Create an offscreen canvas for crop generation
+  const offscreenCanvas = document.createElement('canvas');
+  const offscreenCtx = offscreenCanvas.getContext('2d');
+  
+  // Function to create a random crop from a random image
+  const createRandomCrop = () => {
+    // Get window width and determine screen side
+    const windowWidth = window.innerWidth;
+    const screenMidpoint = windowWidth / 2;
+    
+    // Choose the appropriate image set based on mouse X position
+    // Left side (typography) vs Right side (diagrams/charts)
+    const isLeftSide = mouseX < screenMidpoint;
+    const appropriateImagesArray = isLeftSide ? leftImages : rightImages;
+    
+    // If no appropriate images are loaded, return null
+    if (appropriateImagesArray.length === 0) return null;
+    
+    // Select a random image from the appropriate set
+    const img = appropriateImagesArray[Math.floor(Math.random() * appropriateImagesArray.length)];
+    
+    // Make sure the image is valid
+    if (!img.width || !img.height) return null;
+    
+    // Define safe dimensions for cropping
+    const safeWidth = Math.max(100, img.width);
+    const safeHeight = Math.max(100, img.height);
+    
+    let cropX, cropY, cropSize;
+    
+    if (isLeftSide) {
+      // For left side, use regular intervals of height/6 based on EACH IMAGE'S height (not safe height)
+      const imageHeight = img.height;
+      const intervalSize = Math.floor(imageHeight / 6); // K is now image-specific
+      
+      // Choose a random interval point (0-5 multiplied by interval size)
+      const intervalIndex = Math.floor(Math.random() * 6);
+      // Add a small 2-pixel offset to make it less grid-like
+      const offset = Math.floor(Math.random() * 4) - 2; // -2 to +2 pixels
+      cropY = (intervalIndex * intervalSize) + offset;
+      
+      // Make sure we don't go out of bounds
+      cropY = Math.min(Math.max(0, cropY), imageHeight - intervalSize);
+      
+      // For X coordinate in left side, also use intervals based on the image width if possible
+      const imageWidth = img.width;
+      if (imageWidth >= intervalSize * 6) {
+        const xIntervalIndex = Math.floor(Math.random() * 6);
+        const xOffset = Math.floor(Math.random() * 4) - 2; // -2 to +2 pixels
+        cropX = (xIntervalIndex * intervalSize) + xOffset;
+      } else {
+        // If image isn't wide enough for 6 intervals, divide it proportionally
+        const widthIntervals = Math.max(2, Math.floor(imageWidth / intervalSize));
+        const xIntervalIndex = Math.floor(Math.random() * widthIntervals);
+        const widthIntervalSize = Math.floor(imageWidth / widthIntervals);
+        const xOffset = Math.floor(Math.random() * 4) - 2; // -2 to +2 pixels
+        cropX = (xIntervalIndex * widthIntervalSize) + xOffset;
+      }
+      
+      // Make sure X doesn't go out of bounds with the offset
+      cropX = Math.min(Math.max(0, cropX), imageWidth - intervalSize);
+      
+      // Use the interval size as crop size (square crop)
+      cropSize = intervalSize;
+    } else {
+      // For right side, make crops smaller using actual image dimensions
+      const imageWidth = img.width;
+      const imageHeight = img.height;
+      const maxCropSize = Math.min(imageWidth, imageHeight) / 3; // Smaller crops
+      cropSize = Math.min(30 + Math.floor(Math.random() * 30), maxCropSize);
+      
+      // Add a small random offset of ±2 pixels
+      const xOffset = Math.floor(Math.random() * 4) - 2; // -2 to +2 pixels
+      const yOffset = Math.floor(Math.random() * 4) - 2; // -2 to +2 pixels
+      
+      cropX = Math.floor(Math.random() * (imageWidth - cropSize)) + xOffset;
+      cropY = Math.floor(Math.random() * (imageHeight - cropSize)) + yOffset;
+      
+      // Make sure we don't go out of bounds with the offset
+      cropX = Math.min(Math.max(0, cropX), imageWidth - cropSize);
+      cropY = Math.min(Math.max(0, cropY), imageHeight - cropSize);
+    }
+    
+    // Size for low resolution output (5-15 pixels as requested)
+    const outputSize = isLeftSide ? 
+      10 + Math.floor(Math.random() * 5) : // 10-15 pixels for left side (larger)
+      5 + Math.floor(Math.random() * 5);  // 5-10 pixels for right side (smaller)
+    
+    // Set canvas sizes - always maintain square aspect for the left side
+    if (isLeftSide) {
+      // Square aspect ratio for left side
+      offscreenCanvas.width = outputSize;
+      offscreenCanvas.height = outputSize;
+    } else {
+      // For right side, we can be more flexible with the aspect ratio
+      // based on the original crop's dimensions
+      const aspectRatio = cropSize / cropSize; // Square in this implementation
+      offscreenCanvas.width = outputSize;
+      offscreenCanvas.height = outputSize;
+    }
+    
+    // Draw the cropped section at low resolution
+    offscreenCtx.drawImage(
+      img,
+      cropX, cropY, cropSize, cropSize, // Source rectangle (always square)
+      0, 0, offscreenCanvas.width, offscreenCanvas.height // Destination rectangle
+    );
+    
+    // Create a new canvas to return (since we're reusing offscreenCanvas)
+    const finalCanvas = document.createElement('canvas');
+    finalCanvas.width = outputSize;
+    finalCanvas.height = outputSize;
+    const finalCtx = finalCanvas.getContext('2d');
+    finalCtx.drawImage(offscreenCanvas, 0, 0);
+    
+    return finalCanvas;
+  };
+  
+  // Function to check if dripping should be disabled at current mouse position
+  const shouldDisableDripping = () => {
+    // Check if mouse is over any tab section
+    const abstractTabs = document.querySelector('.abstract-docs-tabs');
+    const attendanceTabs = document.querySelector('.attendance-tabs');
+    
+    // Check abstract tabs
+    if (abstractTabs) {
+      const rect = abstractTabs.getBoundingClientRect();
+      if (mouseX >= rect.left && mouseX <= rect.right && 
+          mouseY >= rect.top && mouseY <= rect.bottom) {
+        return true; // Disable dripping over abstract tabs
+      }
+    }
+    
+    // Check attendance tabs
+    if (attendanceTabs) {
+      const rect = attendanceTabs.getBoundingClientRect();
+      if (mouseX >= rect.left && mouseX <= rect.right && 
+          mouseY >= rect.top && mouseY <= rect.bottom) {
+        return true; // Disable dripping over attendance tabs
+      }
+    }
+    
+    // Check specific abstract tab - disable below it as well
+    const abstractTab = document.querySelector('.abstract-tab');
+    if (abstractTab) {
+      const rect = abstractTab.getBoundingClientRect();
+      if (mouseY > rect.bottom) {
+        return true; // Disable dripping below abstract tab
+      }
+    }
+    
+    // Get abstract section and attendance section to disable everything below them
+    const abstractSection = document.querySelector('.abstract-documents-section');
+    const attendanceSection = document.querySelector('.attendance-section');
+    
+    // Disable below abstract section
+    if (abstractSection) {
+      const rect = abstractSection.getBoundingClientRect();
+      if (mouseY > rect.bottom) {
+        return true; // Disable dripping below abstract section
+      }
+    }
+    
+    // Disable below attendance section
+    if (attendanceSection) {
+      const rect = attendanceSection.getBoundingClientRect();
+      if (mouseY > rect.top) {
+        return true; // Disable dripping below attendance section
+      }
+    }
+    
+    // Otherwise allow dripping
+    return false;
+  };
+  
+  // Add droplets based on mouse movement
+  const addDroplets = () => {
+    if (!isMouseMoving || preloadedImages.length === 0) return;
+    
+    // Only allow droplets in the header section, disable everywhere else
+    if (shouldDisableDripping()) return;
+    
+    // Add droplets based on mouse speed
+    const speed = Math.sqrt(
+      Math.pow(mouseX - lastMouseX, 2) + 
+      Math.pow(mouseY - lastMouseY, 2)
+    );
+    
+    const dropletCount = Math.min(3, Math.floor(speed / 5) + 1);
+    
+    for (let i = 0; i < dropletCount; i++) {
+      // Create random crop canvas
+      const cropCanvas = createRandomCrop();
+      if (cropCanvas) {
+        // Add slight offset from mouse position
+        const offsetX = (Math.random() - 0.5) * 10;
+        const offsetY = (Math.random() - 0.5) * 10;
+        
+        droplets.push(new Droplet(mouseX + offsetX, mouseY + offsetY, cropCanvas));
+      }
+    }
+    
+    lastMouseX = mouseX;
+    lastMouseY = mouseY;
+  };
+  
+  // Update all droplets
+  const updateDroplets = () => {
+    for (let i = droplets.length - 1; i >= 0; i--) {
+      if (!droplets[i].update()) {
+        // Remove dead droplets
+        droplets.splice(i, 1);
+      }
+    }
+  };
+  
+  // Draw all droplets
+  const drawDroplets = () => {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    
+    for (const droplet of droplets) {
+      droplet.draw(ctx);
+    }
+  };
+  
+  // Mouse movement handler
+  const handleMouseMove = (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+    isMouseMoving = true;
+    
+    // Reset mouse moving flag after a delay
+    clearTimeout(window.mouseMovingTimeout);
+    window.mouseMovingTimeout = setTimeout(() => {
+      isMouseMoving = false;
+    }, 100);
+  };
+  
+  // Main animation loop
+  const animate = () => {
+    addDroplets();
+    updateDroplets();
+    drawDroplets();
+    requestAnimationFrame(animate);
+  };
+  
+  // Check if device is mobile
+  const isMobile = () => {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+           window.innerWidth <= 768; // Also consider small screens as mobile
+  };
+  
+  // Initialize
+  const init = async () => {
+    // Skip initialization on mobile devices
+    if (isMobile()) {
+      console.log('Mobile device detected, dripping effect disabled');
+      return;
+    }
+    
+    await loadImages();
+    window.addEventListener('mousemove', handleMouseMove);
+    animate();
+  };
+  
+  // Start the effect
+  init();
+};
+
+// Start the dripping effect when the page loads
+window.addEventListener('DOMContentLoaded', () => {
+  drippingEffect();
+});
+
+// Add resize listener to disable on small screens dynamically
+window.addEventListener('resize', () => {
+  // If the canvas exists and we're now on mobile, remove it
+  const existingCanvas = document.querySelector('canvas[data-dripping-effect="true"]');
+  if (existingCanvas && /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || 
+     window.innerWidth <= 768) {
+    existingCanvas.remove();
+  }
+});
+    </script>
+</body>
+</html>
