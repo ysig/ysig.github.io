@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <!-- saved from url=(0027)https://www.arminlinke.com/ -->
 <html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Siglidis</title>
+<title>Siglidis Ioannis</title>
 <link rel="stylesheet" type="text/css" href="./website_file/stylesheet.css">
 <!-- <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>⭐</text></svg>"> -->
 
@@ -31,6 +31,11 @@ img {
   display: block;
   margin-right: auto;
   border: none;
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+  object-position: center top;
+  aspect-ratio: 1;
 }
 
 /*add padding to the whole page */
@@ -38,7 +43,132 @@ img {
 /*left: 15%;*/
 /*}*/
 
+/* Toggle switch styles */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 40px;
+  height: 24px;
+  margin: 18px 0 0 0;
+}
 
+/* Hide default HTML checkbox */
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+/* The slider */
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 3px;
+  bottom: 3px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #4b4f64;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #4b4f64;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(16px);
+  -ms-transform: translateX(16px);
+  transform: translateX(16px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 24px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/* Switch label */
+.switch-label {
+  display: inline-block;
+  margin-left: -290px;
+  vertical-align: middle;
+  font-size: 12px;
+  color: #4b4f64;
+  /* float: right; */
+  margin-right: 0;
+  font-weight: normal;
+  position: relative;
+  top: 9px;
+}
+
+/* Content sections */
+.content-section {
+  display: none;
+}
+
+.content-section.active {
+  display: block;
+}
+
+/* Toggleable links */
+.toggleable-links {
+  display: none;
+}
+
+.toggleable-links.active {
+  display: inline;
+}
+
+/* Hide the line break after toggleable links when hidden */
+.toggleable-links + br {
+  display: none;
+}
+
+.toggleable-links.active + br {
+  display: block;
+}
+
+/* Header container for better layout */
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.header-text {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 295px;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 
 /*  width: 100%;*/
 /*  padding: 10px;*/
@@ -54,186 +184,105 @@ img {
 
 <body>
 <div class="mainbox">
-<img src="./website_file/yannis.jpg" alt="my face" style="border: none;" width="30%">
+<img id="profile-image" src="./website_file/yannis.jpg" alt="my face" style="border: none;">
 
 <!-- <img src="./website_file/image_winter.png" alt="bild" style="border: none;" width="20%"> -->
-<h2><br><u>Ioannis Siglidis (he/they)</u> <br>
-</h2>
+<div class="header-container">
+  <div class="header-text">
+    <h2 style="display:inline; margin:0; padding:0;"><br><u>Ioannis Siglidis (he/they)</u></h2>
+    <label class="switch">
+      <input type="checkbox" id="toggle-switch" onchange="toggleContent()">
+      <span class="slider round"></span>
+    </label>
+    <span class="switch-label" id="switch-label">Am I a bot?</span>
+  </div>
+</div>
+
+<!-- Brief Bio Section -->
+<div class="content-section active" id="brief-bio">
+<div class="text">
+	I'm a postdoctoral researcher in the <a target="_blank" href="https://www.aicentre.dk/">Pioneer Center for AI</a> in Copenhagen, working on modeling Digital Narratives, under the supervision of <a href="https://sergebelongie.github.io/">Serge Belongie</a>. I defended my PhD in Computer Vision on <a href="https://ysig.github.io/phd/">"Image Mining via Synthesis"</a> (2022-2025) at <a target="_blank" href="https://www.ecoledesponts.fr/">Ecole Des Ponts</a>, advised by <a target="_blank" href="https://imagine.enpc.fr/~aubrym/">Mathieu Aubry</a>, where I collaborated closely with <a target="_blank" href="https://people.eecs.berkeley.edu/~efros/">Alyosha Efros</a> and <a target="_blank" href="https://shiry.ttic.edu/">Shiry Ginosar</a>. I'm a graduate of <a href="https://www.master-mva.com/">MVA</a> and <a href="https://www.ece.ntua.gr/en">ECE-NTUA</a>.
+  <br>
+  <br>
+  Being a polymath the core of my research is interdisciplinary, formed around three central beliefs: a) deep neural networks are the first technology to operationalize human perception outside reductive mathematical models; b) being statistical sciences of perception, the "arts" and the "humanities" are ideal generators of machine learning problems; c) by operationalizing perceptual ontological questions, machine-learning turns modeling into philosophy-in-action.
+<p></p>
+
+<p></p>
+</div>
+</div>
+
+<!-- Full Content Section -->
+<div class="content-section" id="full-content">
 <div class="text">
 	I'm a postdoctoral researcher in the <a target="_blank" href="https://www.aicentre.dk/">Pioneer Center for AI</a> in Copenhagen, working with <a target="_blank" href="https://sergebelongie.github.io/">Serge&nbspBelongie</a> on modeling Digital Narratives. I defended my PhD in Computer Vision on <a target="_blank" href="https://ysig.github.io/phd/">"Image Mining via Synthesis"</a> (2022-2025) funded by a scholarship by the University of <a target="_blank" href="https://www.ecoledesponts.fr/">Ecole Des Ponts</a> of the eastern Paris Region. There I was part of the <a target="_blank" href="https://imagine-lab.enpc.fr/">IMAGINE</a> lab, advised by <a target="_blank" href="https://imagine.enpc.fr/~aubrym/">Mathieu Aubry</a>, where our work on <a target="_blank" href="https://learnable-typewriter.github.io/">The Learnable Typewriter</a>, got the best paper award at <a target="_blank" href="https://x.com/YSiglidis/status/1831639804666146954">ICDAR 2024</a>. During the summer of 2023 I visited <a target="_blank" href="https://bair.berkeley.edu/">BAIR</a> under the most loving hospitality of <a target="_blank" href="https://people.eecs.berkeley.edu/~efros/">Alyosha Efros</a>, where I made <a target="_blank" href="https://youtu.be/YOKPo-I6cgs?si=49gNWUMosVbeDGuN&t=490">friends along the way</a>. I'm an <a target="_blank" href="https://antikythera.org/">Antikythera</a> 2024 <a target="_blank" href="https://antikythera.org/studios#ci">Cognitive Infrastructure studio</a> alumni, where I learned (from my friend <a target="_blank" href="https://cezar.io/">Cezar</a>) that my website has a <a target="_blank" href="http://contemporary-home-computing.org/prof-dr-style/">Prof. Dr. Style</a>, yet its base template comes from <a target="_blank" href="https://www.arminlinke.com/">Armin Linke</a>. I had the priviledge to work closely for almost 3 years (2020-2022) with the visionary <a target="_blank" href="https://ilanmanouach.com/">Ilan Manouach</a> doing futurist (AI-comics) projects like the <a target="_blank" href="https://twitter.com/NeuralYorker">Neural Yorker</a>.  My first useful project was <a target="_blank" href="https://www.jmlr.org/papers/v21/18-370.html">GraKeL: A Graph Kernel Library in Python</a> under the supervision of <a target="_blank" href="http://www.lix.polytechnique.fr/Labo/Ioannis.Nikolentzos/">Giannis Nikolentzos</a> in the <a target="_blank" href="http://www.lix.polytechnique.fr/dascim/">DaSciM</a> team at Ecole Polytechnique. I hold a degree with a suma cum laude from both the School of <a target="_blank" href="https://www.ece.ntua.gr/">Electrical and Computer Engineering</a> of the <a target="_blank" href="https://www.ece.ntua.gr/en">National Technical University of Athens</a> and the <a target="_blank" href="https://www.master-mva.com/">MVA</a> master in Paris of <a target="_blank" href="https://ens-paris-saclay.fr/en">ENS-Paris-Saclay</a>. I'm notorious for being a catophile and for saying /ˈeɪ/ (sounds like the letter "A") yet my good-old friend <a target="_blank" href="https://archimedesai.gr/en/researchers/chrysa-oikonomou">Chrysa</a> started it.
 <p></p>
 
 <p></p>
 </div>
+</div>
 
+<!-- Sidebar Links (always visible) -->
 <a target="_blank" href="https://drive.google.com/file/d/1jNJjrDjjKSqKO-70wQajzmgtbQnM4BfU/view?usp=sharing">CV</a><br>
+<a target="_blank" href="personal_art.html" class="toggleable-links">Personal Art</a><br>
+<a href="https://docs.google.com/forms/d/e/1FAIpQLSfX45H65Gqwf3yt0WMXHTw9_yT2iE7HLWYmBlywiFdSBDtDnQ/viewform?usp=header"  class="toggleable-links">Inquiries</a><br>
 <a target="_blank" href="mailto:ioannis.siglidis@di.ku.dk">Contact</a><br>
-<!-- <a target="_blank" href="./website_file/portfolio.pdf">Portfolio</a><br> -->
+<a target="_blank" href="https://scholar.google.com/citations?user=ayXKx-AAAAAJ&hl=el&oi=sra">Scholar</a><br>
 <a target="_blank" href="https://github.com/ysig">GitHub</a><br>
 <a target="_blank" href="https://www.linkedin.com/in/yiannis-siglidis-7a54801b8/">LinkedIn</a><br>
 <a target="_blank" href="https://twitter.com/YSiglidis">Twitter</a><br>
-<!-- <a target="_blank" href="https://drive.google.com/file/d/1o_Dsy1GiRtp_rpfD6VAxiRusy1qP63yK/view?usp=sharing">CV</a><br>-->
-<a target="_blank" href="https://scholar.google.com/citations?user=ayXKx-AAAAAJ&hl=el&oi=sra">Scholar</a><br>
+<a target="_blank" href="https://bsky.app/profile/ysiglidis.bsky.social" class="toggleable-links">Bluesky</a><br>
 
+<!-- <a target="_blank" href="./website_file/portfolio.pdf">Portfolio</a><br> -->
+<!-- <a target="_blank" href="https://drive.google.com/file/d/1o_Dsy1GiRtp_rpfD6VAxiRusy1qP63yK/view?usp=sharing">CV</a><br>-->
 </div>
 
 <br>
 
 <!-- INSERT NEW ENTRIES UNDER THIS LINE -->
-<h1>Notable Scientific Publications<br></h1>
-<hr size="2" width="45%" color="black" align="left"> 
-(Notation: ⭐ current interest, * equal contribution)
+<div class="content-section" id="full-content2">
+<iframe id='pub' src="publications.html" style="width:100%; height:1830px; border:none; margin-left: -30px;"></iframe>
 
-</p><div class="mainbox">
+<iframe id='theses' src="theses.html" style="width:100%; height:300px; border:none; margin-left: -30px;"></iframe>
+
+<iframe id='art' src="art_literary.html" style="width:100%; height:2300px; border:none; margin-left: -30px; margin-bottom: -20px; margin-top: 0;"></iframe>
+
+<iframe id='been_there' src="been_there.html" style="width:100%; height:540px; border:none; margin-left: -30px;"></iframe>
 
 
-<h1>(2022-2025) <a target="_blank" href="https://ysig.github.io/phd/">Image Mining via Synthesis (Dissertation)</a> 📜</h1>
-
-<img src="./phd/Cover.png" alt="phd logo" style="border: none; margin-bottom: 10px;" width="60%";>
-
-<h1>(2024) <a target="_blank" href="https://diff-mining.github.io/">Diffusion Models as Data Mining Tools</a> ⭐</h1>
-
-<img src="./project-images/diffmining.png" alt="diffmining logo" style="border: none; margin-bottom: 10px;" width="60%";>
-
-<b>Ioannis Siglidis</b>, <a href="https://holynski.org/">Aleksander Holynski</a>, <a href="https://people.eecs.berkeley.edu/~efros/">Alexei A. Efros</a>, <a href=https://imagine.enpc.fr/~aubrym/>Mathieu Aubry</a>, <a href="https://people.eecs.berkeley.edu/~shiry/">Shiry Ginosar</a><br>
-European Conference on Computer Vision (ECCV)</a><br>
-
-<br>
-<h1>(2024) <a target="_blank" href="https://imagine.enpc.fr/~siglidii/learnable-typewriter/">The Learnable Typewriter: A generative approach to text analysis.</a></h1>
-<img src="./project-images/ltw.png" alt="ltw logo" style="border: none; " width="60%">
-<b>Ioannis Siglidis</b>, <a href="https://ngonthier.github.io/">Nicolas Gonthier</a>, <a href="https://www.jgaubil.com/">Julien Gaubil</a>, <a href="https://www.tmonnier.com/">Tom Monnier</a>, <a href=https://imagine.enpc.fr/~aubrym/>Mathieu Aubry</a><br>
-<b>Best Paper Award</b>; Internation Conference of Document Analysis and Recognition (ICDAR)</a><br>
-
-<br>
-<h1>(2024) <a target="_blank" href="https://learnable-handwriter.github.io/">An Interpretable Deep Learning Approach for Morphological Script Type Analysis</a></h1>
-<img src="./project-images/matenia.png" alt="learnable-handwriter logo" style="border: none; margin-bottom: 5px; margin-top: -12px;" width="60%" >
-
-Malamatenia Vlachou-Efstathiou, <b>Ioannis Siglidis</b>, <a href="https://www.irht.cnrs.fr/fr/annuaire/stutzmann-dominique">Dominique Stutzmann</a>, <a href=https://imagine.enpc.fr/~aubrym/>Mathieu Aubry</a>, <br>
-Internation Workshop on Computational Paleography (IWCP)</a><br> 
-
-<br>
-<h1>(2024) <a target="_blank" href="https://imagine.enpc.fr/~ioannis.siglidis/osv5m/">OpenStreetView-5M
-The Many Roads to Global Visual Geolocation</a></h1>
-<img src="./project-images/osv5m.png" alt="grakel logo" style="border: none; margin-bottom: 5px; margin-top: -5px;" width="60%">
-
-<a href="https://imagine-lab.enpc.fr/staff-members/guillaume-astruc/">Guillaume Astruc*</a> <a href="https://nicolas-dufour.github.io/">Nicolas Dufour*</a> <b>Ioannis&nbsp;Siglidis*</b>, Constantin Aronssohn, Nacim Bouia, <a href="https://stephanie-fu.github.io/">Stephanie&nbsp;Fu</a>,<br> <a href="https://romainloiseau.fr/">Romain&nbsp;Loiseau</a>, <a href="https://nv-nguyen.github.io/">Van Nguyen Nguyen</a>,
-<a href="https://imagine.enpc.fr/~raudec/">Charles Raude</a>,
-<a href="https://imagine.enpc.fr/~vincente/">Elliot Vincent</a>,
-Lintao XU, Hongyu Zhou, <a href="https://loiclandrieu.com/">Loic Landrieu</a><br>
-Computer Vision and Pattern Recognition (CVPR)</a><br> 
-
-<br>
-<h1>(2021) <a target="_blank" href="https://jair.org/index.php/jair/article/view/13225">Graph kernels: A survey</a></h1>
-<img src="./project-images/gksurvey.png" alt="grakel logo" style="border: none; margin-bottom: 5px;" width="60%">
-Giannis Nikolentzos, <b>Giannis Siglidis</b>, Michalis Vazirgiannis<br>
-Journal of Artificial Intelligence Research (JAIR)</a><br> 
-
-<br>
-<h1>(2020) <a target="_blank" href="https://www.jmlr.org/papers/v21/18-370.html">GraKeL: A Graph Kernel Library in Python<br></a></h1>
-<img src="./project-images/grakel.png" alt="grakel logo" style="border: none; padding-left: 5%; margin-bottom: 5px;" width="40%">
-
-<div style="max-width: 60%;">
-<b>Giannis Siglidis</b>, Giannis Nikolentzos, Stratis Limnios, Christos Giatsidis, Konstantinos Skianis, <br>Michalis Vazirgiannis<br>
 </div>
-Journal of Machine Learning Research (JMLR)</a><br>
-
-<br>
-
-
-<br>
-</div>
-
-<h1>Notable Art and Literary Projects<br></h1>
-<hr size="2" width="45%" color="black" align="left"> 
-<div class="mainbox">
-
-<h1>(2025) <a target="_blank" href="https://journal.antikythera.org/">Antikythera, MIT Press</a>. <br></a></h1>
-<img src="./project-images/antikythera.png" alt="antikythera logo" style="border: none;" width="40%">
-<!-- enclose text in max width wrap -->
-<div style="max-width: 60%;">
-<ul style="list-style-type: none; padding-left: 20px;">
-    <li style="margin-bottom: 15px;">
-        <b>Generative Topolinguistics</b> <a target="_blank" href="https://link.antikythera.org/BHpDzs">(p. 119)</a><br>
-        <span style="color: #666; font-size: 0.9em;">Expanding my previous idea of <a target="_blank" href="./website_file/latent-reading.pdf">Latent Reading</a> to a whole infrastructure.</span>
-    </li>
-    <li>
-        <b>The Chronoceptual Governor</b> <a target="_blank" href="https://link.antikythera.org/BHpDzs">(p. 146)</a><br>
-        <span style="color: #666; font-size: 0.9em;">Reframing technology as the main mediator of an ecology of timescales.</span>
-    </li>
-</ul>
-</div>
-<br>
-
-
-<h1>(2022) <a target="_blank" href="https://ilanmanouach.com/work/fastwalkers">Fastwalkers, Ilan Manouach</a>. <br></a></h1>
-<img src="./project-images/fastwalkers.png" alt="fastwalkers logo" style="border: none;" width="60%">
-<!-- enclose text in max width wrap -->
-<div style="max-width: 60%;">
-The first synthetic comic book co-created with emerging AI, a nonlinear meditation on deep learning that<br>celebrates the unexpected poetics of generative computing and explores its potential to form new reader sensibilities. It is the outcome of more than a 2-year research effort of trying to create a manga comic driven by the excitement and resources of an early stage of generative modelling, that at that time didn't meet the industrial needs of high-fidelity reconstruction and compositional generalization. A true futurist piece of work that both captures and invents a whole micro-style of imagery, from and as an implemented extra-human metaphor of Manga as big-data. As rare as a picture of a falling star, like certain websites of Web 1.0 it is an essential piece of avant-garde artistry.
-</div>
-
-<br>
-
-<h1>(2020 - 2023) <a target="_blank" href="https://twitter.com/NeuralYorker">The Neural Yorker</a> <br></a></h1>
-<img src="./project-images/ny.png" alt="grakel logo" style="border: none;" width="60%">
-Synthetic Cartoons in the style of New Yorker on Twitter (~2K followers). 
-<br>
-<br>
-
-
-<h1>(2022) Translation of <a target="_blank" href="https://www.versobooks.com/books/3762-capital-is-dead">Capital is Dead</a> from McKenzie Wark, in <a target="_blank" href="https://topovoros.gr/catalogue/capital-is-dead/">greek</a>. <br></a></h1>
-<img src="./project-images/cpt.jpg" alt="grakel logo" style="border: none; margin-bottom: 5px;" width="60%">
-<div style="max-width: 60%;">
-A long interview I took from McKenzie Wark about the book in <a target="_blank" href="https://metacpc.org/en/mckenzie-wark/">english</a> and in <a target="_blank" href="https://metacpc.org/mckenzie-wark/">greek</a>.  
-<br>
-A single <a target="_blank" href="https://movement.radio/show/a-new-mode-of-production-is-necessary-2023-01-24">conceptual podcast</a> where I read excerpts in the voice of an AI hybrid of me and McKenzie Wark.
-</div>
-<br>
-
-<h1>(2021) <a target="_blank" href="./website_file/portfolio.pdf">Latent Reading</a> @ <a target="_blank" href="https://www.onassis.org/culture/publications/chimeras-inventory-of-synthetic-cognition">Chimeras: Inventory of Synthetic Cognition</a><br></a></h1>
-<img src="./project-images/latent-reading.png" alt="grakel logo" style="border: none;margin-bottom: 12px;" width="60%">
-<div style="max-width: 60%;">
-Different from "Close Reading" that focuses on the close study of the artifacts of a certain cultural entity and "Distant Reading" that applies computational methods to them by treating them as big-data and extracts high level statistical conclusions and avoids a close qualitative analysis, Latent Reading speculates that to understand such an entity it may be meaningful to do instead a close-reading of the outputs of a generative model trained on its big-data.
-</div>
-<br>
 
 </div>
 
 
-<br>
+<script>
+function toggleContent() {
+    const briefBio = document.getElementById('brief-bio');
+    const fullContent = document.getElementById('full-content');
+    const fullContent2 = document.getElementById('full-content2');
+    const toggleSwitch = document.getElementById('toggle-switch');
+    const switchLabel = document.getElementById('switch-label');
+    const profileImage = document.getElementById('profile-image');
+    const toggleableLinks = document.querySelectorAll('.toggleable-links');
 
-<h1>Been There; Done That<br></h1>
-<hr size="2" width="35%" color="black" align="left"> 
-<div class="mainbox">
+    if (toggleSwitch.checked) {
+        // Switch to full content
+        briefBio.classList.remove('active');
+        fullContent.classList.add('active');
+        fullContent2.classList.add('active');
+        toggleableLinks.forEach(link => link.classList.add('active'));
+        switchLabel.textContent = 'I\'m a bot.';
+        profileImage.src = './website_file/image_summer.png';
+    } else {
+        // Switch to brief bio
+        fullContent.classList.remove('active');
+        briefBio.classList.add('active');
+        fullContent2.classList.remove('active');
+        toggleableLinks.forEach(link => link.classList.remove('active'));
+        switchLabel.textContent = 'Am I a bot?';
+        profileImage.src = './website_file/yannis.jpg';
+    }
 
-</div>
+}
+</script>
 
-<h1>(2021) <a target="_blank" href="https://hyperallergic.com/671843/neural-yorker-ilan-manouach-ioannis-siglidis/">Computer-Generated New Yorker Cartoons Are Delightfully Weird</a></h1>
-Neural Yorker Interview in the Hyperallergic.
-
-<h1>(2021) <a target="_blank" href="https://www.onassis.org/whats-on/festival-you-and-ai-through-the-algorithmic-lens/artworks/its-not-you-its-me">It's not YOU, it's me.</a></h1>
-Technical Consultant (as a continuation of "Den ime ego")
-
-<h1>(2021) <a target="_blank" href="">Neurips 2020 Creativity</a></h1>
-A Graphic Novel Generated by Artificial Intelligence
-
-<h1>(2021) <a target="_blank" href="https://ia-fictions.net/en/participants/ilan-manouach">IA Fictions</a></h1>
-Applied Memetic: Comics Generated by Artificial Intelligence
-
-<h1>(2021) <a target="_blank" href="https://www.youtube.com/watch?v=Gtt4gqbAm8I">It's not me - Den ime ego</a></h1>
-GAN Face editing for the Video Clip of a greek pop Artist
-
-<h1>(2020) <a target="_blank" href="http://www.aiartonline.com/design-2020/ilan-manouach-ioannis-siglidis-thomas-melistas-and-fivos-kalogiannis/">Neurips 2020 Creativity</a></h1>
-A Graphic Novel Generated by Artificial Intelligence
-
-<h1>(2019) <a target="_blank" href="https://www.odycceus.eu/news-detail/news/results-from-summer-school/?tx_news_pi1%5Bcontroller%5D=News&tx_news_pi1%5Baction%5D=detail&cHash=8c283a74f15de7c686ac9b7f289ef772">ODYCCEUS Venice Summer School</a></h1>
-Presenting the <a target="_blank" href="https://pypi.org/project/stream-graph/">Stream Graph Library</a> developed under the supervision of <a target="_blank" href="https://www-complexnetworks.lip6.fr/~lamarche/">Robin Lamarche Perrin</a>.
-
-<h1>(2018) <a target="_blank" href="">BNP-Cardif Datacamp</a></h1>
-Lab Assistant in Practical Machine Learning in Big Data with <a target="_blank" href="http://delab.csd.auth.gr/~apostol/">Apostolos Papadopoulos</a>.
-
-<h1>(2018) <a target="_blank" href="https://exed.polytechnique.edu/fr">Ecole Polytechnique Executive Education</a></h1>
-Lab Assistant in Web and Graph Mining with <a target="_blank" href="http://www.lix.polytechnique.fr/Labo/Ioannis.Nikolentzos/">Ioannis Nikolentzos</a>.
-
-
-</div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></div></body></html>
+</body></html>

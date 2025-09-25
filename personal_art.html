@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Personal Art - Ioannis Siglidis</title>
+<link rel="stylesheet" type="text/css" href="./website_file/stylesheet.css">
+<link rel="stylesheet" type="text/css" href="./website_file/main.css">
+<style>
+.tab-header {
+  display: flex;
+  justify-content: center;
+  margin: 24px 0 16px 0;
+  gap: 16px;
+}
+.tab-header button {
+  background: #f4f4f4;
+  border: 1px solid #ccc;
+  border-radius: 6px 6px 0 0;
+  padding: 8px 24px;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  transition: background 0.2s;
+}
+.tab-header button.active {
+  background: #3897f0;
+  color: #fff;
+  border-bottom: 2px solid #3897f0;
+}
+.tab-content {
+  display: none;
+  scroll-behavior: smooth;
+}
+.tab-content.active {
+  display: block;
+}
+.artwork-group {
+  margin-bottom: 36px;
+  padding: 18px 0 0 0;
+  border-top: 1px solid #e0e0e0;
+  scroll-margin-top: 90px; /* Offset for sticky header if needed */
+}
+.artwork-title {
+  font-weight: bold;
+  font-size: 1.15em;
+  margin-bottom: 4px;
+}
+.artwork-desc {
+  color: #555;
+  font-size: 0.98em;
+  margin-bottom: 12px;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  display: block;
+}
+.artwork-media-row {
+  display: flex;
+  gap: 24px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+.artwork-media-row > * {
+  flex: 1 1 250px;
+  min-width: 220px;
+}
+@media (max-width: 900px) {
+  .artwork-media-row { flex-direction: column; gap: 12px; }
+}
+.artwork-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 18px;
+  justify-content: flex-end;
+}
+.artwork-nav button {
+  background: #eee;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 13px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.artwork-nav button:hover {
+  background: #3897f0;
+  color: #fff;
+}
+</style>
+</head>
+<body>
+
+<h1>Personal Work.</h1>
+<h2>Copyright © Ioannis Siglidis</h2>
+<h2><a href="https://docs.google.com/forms/d/e/1FAIpQLSfX45H65Gqwf3yt0WMXHTw9_yT2iE7HLWYmBlywiFdSBDtDnQ/viewform?usp=header">Inquiries.</a></h2>
+
+<div class="tab-header">
+  <button class="tab-btn active" data-tab="photo">Image</button>
+  <!-- <button class="tab-btn" data-tab="image">Image</button> -->
+  <button class="tab-btn" data-tab="video">Video</button>
+</div>
+
+<!-- Photo Tab -->
+<div class="tab-content active" id="tab-photo">
+  <!-- Group 1: Urban Solitude -->
+  <div class="artwork-group" id="photo-1">
+    <div class="artwork-nav">
+      <button class="artwork-prev" data-tab="photo" data-index="0" title="Previous" disabled>&larr;</button>
+      <button class="artwork-next" data-tab="photo" data-index="0" title="Next">&rarr;</button>
+    </div>
+    <div class="artwork-title">Inpainting Series</div>
+    <div class="artwork-desc">
+      Circa 2024 an <a href="instagram.com/kilmaruig?igshid=OGQ5ZDc2ODk2ZA==">instagram</a> account became trendy, where the user would turn really touristy streets into empty streets. What I find interesting in these pictures is that unlike <a href="https://mars.nasa.gov/mars2020/multimedia/raw-images/">images of Mars</a> there is so much human presence, i.e. life, in these natural environments that it feels both as if the world is empty, or as it is only made for you to consume. There is definitely a narcissistic feeling that enjoys finding a nice location and being completely alone in it; in Greece it would be a beach. I remember someone telling me that for some work they did at the Louvre they ended up spending alone time with Mona-Liza, as if it was an insane, almost aristocratic, priviledge. Indeed, going to a museum that stores dozens of artworks stolen or "approved to be taken by local officials" (as someone else also once told me) could also come from a transgressive desire, of trying to remove something sublime and take it with you. 
+      
+      At the same time, I noticed how the space of a painting excludes the viewer, by occupying it. The characters inside an artwork are placed there so that you are not placed there yourself. So I asked: what would it mean to visit the space of the artwork for the first time, and how would this change its signification? Inpainting hides the word painting in it. And so I started <a href="">inpainting</a> humans from artworks. Or this is rather the post-hoc story of the art work. What it really it is a <a href="https://en.wikipedia.org/wiki/Sublimation_(psychology)">sublimation</a> of my repulse to the forces of extinction, ruling our current political economy.
+    </div>
+    <div class="artwork-media-row">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DHTeUkrN234/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/C4Wze0MKEVl/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
+
+  <div class="artwork-group" id="photo-2">
+    <div class="artwork-nav">
+      <button class="artwork-prev" data-tab="photo" data-index="2" title="Previous">&larr;</button>
+      <button class="artwork-next" data-tab="photo" data-index="2" title="Next" disabled>&rarr;</button>
+    </div>
+    <div class="artwork-title">Examples of Artificial Art Making</div>
+    <div class="artwork-desc">
+      Some time ago Prof. A. gave me to read a paper that was suspicious to whether <a href="https://arxiv.org/abs/1801.04486">computer can create art</a>. I was at Berkeley then and being so inspired that an advisor gave me such a text to read, I walked up to the hill whose sunset's urgency someone <a href="https://youtu.be/gDZM8tT6Kes?feature=shared&t=655">has compared</a> to the study of the brain, and in almost manic episode I devoured it with full attention. While I somewhat enjoyed the literature and the specifities that it went through (although a lot of them were quite expected and Computer Visiony - e.g. comparison with photography) it was one of those articles that leaves me with the vibe of a parental figure (professor or father - big other) that although theoretically smart and knowledgeable, when discussing a future project you want to do, tells you at some point "it's impossible". In short: I found it conservative (nothing to imply about the author - who I never met and only heard good things for). Indeed, if art is posed and defined as that thing that humans only do, then it's impossible for a computer to make it, except if it becomes human. As I often say, AI is the first thing that a human made according to its image and likeness. Its cause is arbitrary, even if it doesn't like to look back like Benjamin's Angel of History; it carries no feeling of despair. It's a bit similar, like an argument that sees machines having no emotional intelligence following the fact they have no relationship to the world and to humans like the one we do, e.g. because they have <a href="https://www.youtube.com/shorts/Wd8RzZ3xn7w">no mother</a> (a triviality - although a lot of my colleagues may have never read any psychology - "they are paid to not think" as I like to say). B.T.W. Baudrillard said something very similar about machines and the <a href="https://www.reddit.com/r/lacan/comments/sbscyg/comment/hu3a1vw/?utm_source=share&utm_medium=web3x&utm_name=web3xcss&utm_term=1&utm_content=share_button">"other"</a> of Lacan which comes from the "mother" - who is the first "other" - and he also said a very relevant thing about <a href="https://www.goodreads.com/quotes/10698339-machines-produce-only-machines-the-texts-images-films-speech-and">computers - especially what we would now call the social media apparatus - and art</a>, which was arguably his forte. In any case, a machine that has a mother, that goes to art school, that meets a curator, hangs out with them and becomes invited to an exhibition, won't emerge just so machines can create art. Art is <a href="https://en.wikipedia.org/wiki/Orbital_Reflector"></a>(unfortunately)</a> not that special. What we should maybe ask instead: can we tell that art has been made by a human? Or a more timely one: can humans make art? <br>
+    
+      Similar to how as <a href="https://youtu.be/uX5t8EivCaM?feature=shared&t=921">Scott Aaronson notes</a> Turing reduces intelligence from a philosophical problem to a technical one (thus losing something in the process) - we can also think that when art or creativity is artificialized it may also lose something from that initial cozy concept we nested in. This follows the exact same approach that gives the existence of LLMs philosophical significance. The <a href="https://rawmaterialsandfinance.net/en/the-investors-paradox-must-one-be-an-optimist-to-take-the-leap/">Kensian investment-optimism</a>/propaganda of Silicon Valley (whose outflow also fills my plate/and which I happily reproduce whenever I disagree with its conservative contrarians), isn't just relevant simply because "LLMs are like humans", but instead as many like philosophers like Bratton <a href="https://www.noemamag.com/the-five-stages-of-ai-grief/">have argued for AI</a> because they change the cartesian coordinates from which we perceive what it is to be human to somewhere in the middle of the human and the LLM, a philosophical move that is similar to that of species to Dona Haraway's <a href="https://xenopraxis.net/readings/haraway_species.pdf"><i>natureculture</i></a>. The artworks in these series were all landmark moments for me to understand that artificial processes were doing art:
+      1) When I generated, these images and posted them on instagram, an artist friend texted me, to ask "what camera or filter did I use". Currently our recognition models are more than trained to realize that these images are made with <a href="https://www.midjourney.com/explore?tab=video_top">midjourney</a>. There is a thought experiment that I like to involve everybody with whom I discuss about this topic, that is that AI generated images become unrecognizable only once you learn that they exist - in other words if some entity had a private AI machine that would leave AI generated image traces on the web, it would take a lot of time for people to realize that they were not real. I was hanging out the other day with a quite political old friend of mine who had one of them on her phone showing a punk couple of lesbian girls holding hands. The hands were clearly severed; "its AI I told her" - she didn't know. This reminded me of the story another friend told me about the famous move 37 that <a href="https://en.wikipedia.org/wiki/AlphaGo_versus_Lee_Sedol">Alpha Go played against Lee Sedol</a>, which made him lose and quit Go. Funnily if some is trained to recognize that move one can now win it. In the end everything is about the problem of continual learning. AI creates an aesthetic by sticking to some images and architecture. Its function is not to evolve to deceave us. If, in a similar spirit to a GANs discriminator, if it had some user reward that said "this is fake", and new data to train on it could potentially learn to fake novelty to the point that it is novel like artists do. But its users may end up lying to it to stop it from trying to be great, similar to how frenemies accompany your friends in telling you that "your art is great!", alongside your friends... AI becomes ecological, having no will of itself, it's on its creators to decide: do I want to train it more?
+      2) This was the first moment of Artificial Creativity. During BLM and other movements in the US protesters would deface bronze statues of famous politicians. The search/prompt-space is a desire space. One fundamental impulse of desire is violence. This made me sit in front of mid-journey discord chat and run API prompts of the form: "An angry crowd throws a statue of Mark Zuckeberg at the sea." The resulting artwork by itself is one that you could end up seeing in a mediocre museum in some city in the French countryside. It was a dumb idea, never meant to be published. However, what I like about it is that it signifies a very aesthetic transition. Humans are transformed into waves that are transformed into a swarm (of bees?) that is transformed into fire and smoke. This stitched flow of visual metaphors is something rather remarkable to be taken lightly. Poetry - that I used to write until it made me very sad - by a big part, is the art of metaphors. Metaphors can take shape by providing empirical evidence that reveal structural associations in a more abstract semantic-space, which language is efficient at symbolizing - and when that semantic space is sensorial or figurative, this is pretty much a hard artistic skill (the formalized machine learning task would be that of <a href="https://dl.acm.org/doi/10.1145/383259.383295">analogies</a>). As I always like to say, artists that unlike computer-scientists are more interested in the outputs and use of the models and whose excitement hasn't burned out, would be the best people to explore the affordances of these models, with the passion of the real explorer. When seeing a painting in an exhibition, I often want the zero-knowledge proof of whether this was "made by a model". Similar to physics, some proofs are existence proofs of what such tools can do. I think this serves as one of them - which I also believe happens almost at a pixel level because as I understand mid-journey is a pixel-based diffusion model, unlike stable-diffusion.
+      3) This artwork is about distributions. When you look at an image of Mars what you see <a href="https://en.wikipedia.org/wiki/Perseverance_(rover)#/media/File:Perseverance-Selfie-at-Rochette-Horizontal-V2.gif">is a world made by the absence of life</a>. There is no <a href="https://monoskop.org/images/3/35/Maturana_Humberto_Varela_Francisco_Autopoiesis_and_Congition_The_Realization_of_the_Living.pdf">autopoesis</a> / no resistance to <a href="https://www.social-ecology.org/wp/wp-content/uploads/2022/08/schrodinger_whatislife.pdf">negentropy</a> / no <a href="https://recursiveworlds.antikythera.org/">scaffolding</a> that survives there. Everything is the product of a simulation built entirely with the knowledge of physics. It's almost as Mars is made only of scattered high frequencies - destroyed rocks with random shapes - and scattered low frequencies such as mountains sand etc. Torralba gave this <a href="https://web.mit.edu/torralba/www/scene_recognition.html"> its minimum description length formalization</a> much better than I do here - but you get the point. There is even a thought experiment of <a href="https://www.youtube.com/watch?v=CCKAaa66l5k">Jaron Lanier</a> who uses the creation of a distribution anomaly (meaning something that cannot have been created by life) in space to leave an artifact that lasts for so many years, that it would be make it possible with artificial life to discover us. Even if life is not reduced to the object of life, this representation is enough to tell it apart, just by looking at it. Computing spectra in images, is commonly done in intensities, in the black and white representation of an image, so a grayscale sketch is the minimal domain for tracing life, something art is tasked to represent. These images, are supposed moments in a universe's formation, whose representation however reveals so many levels of structure, where looking at them one can realize there is something suspicious. There is no clear gap between low frequencies and high frequency "noise" and quite often you see interesting symmetries popping up. This probably comes from the local patch and match that diffusion models <a href="https://arxiv.org/abs/2412.20292">perform</a> (which is also relevant to my previous artwork). In short, what I find extraordinary in this imagery is that it is proof that life, and consecutively drawing and art, have existed. In some sense it can be the birth of the universe only in simulation.
+    </div>
+    <div class="artwork-media-row">
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cg-hIsyqHds/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Cgk5DQxqJ4h/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+        <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CoPYCmiKDZm/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
+
+  <div class="artwork-group" id="photo-3">
+    <div class="artwork-nav">
+      <button class="artwork-prev" data-tab="photo" data-index="1" title="Previous">&larr;</button>
+      <button class="artwork-next" data-tab="photo" data-index="1" title="Next" disabled>&rarr;</button>
+    </div>
+    <div class="artwork-title">Playing with the interface.</div>
+    <div class="artwork-desc">
+      There is something intimate about an interface - when you play with it you feel you engage with the risk of something unknown, yet beautiful. I rarely see works of AI-art that are not some form circuit bending of models, or don't involve building a whole new creative methodology to substitute an existing one. Here are two works I did on this line: 1) The first uses another little discovery I made, that diffusion models when upscaling images won't keep their semantics the same, like super-resolution methods do or other feed-forward generative models, but encode semantic details across all the spectrum pushing them to random directions. Here, while starting from the same image, the emotions of the protagonist that tiny slither of their eye that we see on the right is varying. Their other characteristics do to, like their hair do to, but are not as clear to our perception. Do they look shy, scared, curious? There are different, possibilities of interpretation, which is what upscaling shows. Looking that person from far one could project one of those worlds. There is always reduced resolution. The object here, is a narrative device that by occluding emotion, focuses it and makes it more pronounced. I recently heard alokmenon a famous queer influencer, who was saying that they were reading a Scottish philosopher theologian who was arguing that the body is the soul. I think this artwork - without it being my explicit intention - representation exactly that.
+      2) This piece is almost like a cry of texture. The central block which was an artifact of an early diffusion model experiment (bad research results are often seeds of artworks) that is used as a seed to outpaint a greater canvas. While the central element always fits to the outpainted results having seen the initial seed makes it pop-out. The function space of the diffusion models is in a way not representative enough. This is how I felt working in Computer Vision. While it was a discipline I really liked, I didn't feel it had the representational capacity to make me not feel like a semantic protrusion. In a way this is what home means to me, an intepretation of the psychoanalytic tension at the base of home that Zizek "nicely" present at <a href="https://www.youtube.com/watch?v=i919_dyPdu8">home is evil</a>. This is also what Deleuze calls partes-extra-partes from Leibniz a part that sticks out, becomes separate and distinct (an assembly part), unlike what he calls intensities which is in unison one part to its surroundings. This work, eased the previous, making me feel momentarily that I may not be a lump but potentially (part of) an organ.
+    </div>
+    <div class="artwork-media-row">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Crnl_mptRRP/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/Crp-wCltrLr/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      
+    </div>
+  </div>
+
+  <div class="artwork-group" id="photo-4">
+    <div class="artwork-nav">
+      <button class="artwork-prev" data-tab="photo" data-index="3" title="Previous">&larr;</button>
+      <button class="artwork-next" data-tab="photo" data-index="3" title="Next" disabled>&rarr;</button>
+    </div>
+    <div class="artwork-title">Informative Outliers</div>
+    <div class="artwork-desc">
+    
+    </div>
+    <div class="artwork-media-row">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CoprKxLNOSw/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CrV-MHetxiq/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/CqvbbI3NJzB/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
+</div>
+
+<div class="tab-content" id="tab-video">
+  <!-- Group 1: Moving Narratives -->
+  <div class="artwork-group" id="video-1">
+    <div class="artwork-nav">
+      <button class="artwork-prev" data-tab="video" data-index="0" title="Previous" disabled>&larr;</button>
+      <button class="artwork-next" data-tab="video" data-index="0" title="Next" disabled>&rarr;</button>
+    </div>
+    <div class="artwork-title">Video from first principles.</div>
+    <div class="artwork-desc">
+      One of my biggest disappointments with AI is that except of throwing CO2 at the planet which arguably <a href="https://www.noemamag.com/the-model-is-the-message/">many GPU relying technologies would</a> it ended up <a href="https://www.youtube.com/watch?v=DGjj7wDYaiI">stealing running water out of people's homes</a>. I still have a big list of video ideas/prompts that I haven't tried because Sam Altman's vision of AI is not exactly the one I have, even if we both enjoy its acceleration. This generation's finest which some of them I had the pleasure to meet, ended up the having core corporate roles in the most impressive genAI models of the last year (sora, genie, gpt-4o). Yet equating video to compute, straight-out energy to entertainement, seems to <a href="https://www.versobooks.com/products/3329-medium-hot?srsltid=AfmBOopGjcf6K_T3_B0jY_LxQeLWzIdHgIPQG2tAxDdMjmPF7C5h2y2J">thermodynamic</a> for my taste. Don't get me wrong - once I was in Paris at ENS Salle Dusane seeing a set of films made with AI technologies that I found objective works of art. SLOP = bad taste, I realized before reading wikipedia's definition that so cleaverly calls it something sort of <a href="https://en.wikipedia.org/wiki/AI_slop">Visual Spam</a>. Both of these videos came out before the then thought impressive scientific task of video generation, was attainable (not to mention generating both video and sound):
+      - The first one about seeing ones past pictures. Here generated images play the role of memories, really playing with the idea of memory as confabulation. Not only that but what I found really clever is that by cutting diffusion sampling short, faint images become faint memories, like that Parisian house you sort of remember. I find that too poetic and on the nose, yet nobody I think pays attention. Part of SLOP is that it trains your attention, something I also notice with papers, how hard it is for example for me to read CVPR papers that don't have the right format. Papers ≈ content, nowadays, or maybe they always were, it's just that the content has become less narratorial and more quick and pictorial. No gazing anymore just looking. How can we know whether computers make art, when we can't recognize "intent" even in art made images. Sound is also generated, coming from some model of the time (that I forgot) which corresponds to babbling. It has also a cry of a baby something that I found archetypical of learning. They say that machines are not even as smart as a child. Yet, if we listen to Nitsche, that may be the hardest part.
+      - I think the process of prompting, which a lot of people and arguably so, have compared to that of search, provides a feeling that search doesn't have which is a strange form of silence. Prompting in a way by lacking factuality is only an afterimage, the average of millions of visual events, that instead of being <a href="https://people.csail.mit.edu/torralba/gallery/">average images</a> have been shaped in absolute cozyness in the tidying up of noise done by the model's weights. This cozyness, has a creep in it which this artwork is meant to represent. Especially trained with aesthetic scores, diffusion models become a yassified hauntology of the internet's virtualization. At some point when I was in Paris I noticed a poster for celebrating not dying from HIV, anymore, which was clearly AI generated (it was similar to <a href="https://www.reddit.com/r/DesignPorn/comments/1k9dts3/we_didnt_live_to_see_the_fall_of_the_berlin_wall/">this one</a> though I can't find the original). While in the beginning I found it appaling and even slightly offensive, as these were "real people", putting my contemporary art glasses I appreciated for that exact same reason: the deaths of HIV that haunt human culture, sensibility, can speak up through this polished mashup of visual representation. Opposing the somewhat cozy leftist doomerism (a concept that McKenzie very nicely showed in p. 21 of <a href="https://www.versobooks.com/products/887-capital-is-dead?srsltid=AfmBOoqV8y9ww-5IlJrm1bYj3HAGNEVZg804iDZsTrTDQPdkwf0Leucv">Capital is Dead</a>) of <a href="https://www.versobooks.com/products/3329-medium-hot?srsltid=AfmBOopGjcf6K_T3_B0jY_LxQeLWzIdHgIPQG2tAxDdMjmPF7C5h2y2J">Hito Steyerl</a> and <a href="https://www.e-flux.com/architecture/intensification/6782975/eating-the-future-the-metabolic-logic-of-ai-slop">Kate Crawford</a>, I think that averages (and their manipulations) have strong histories to tell. 
+      (Along those lines, see also my <a href="https://www.instagram.com/p/CoprKxLNOSw">Berghain related artwork</a>.)
+    <div class="artwork-media-row">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/tv/CjWfXIgpQ5I/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/tv/CjYx_NfMU4_/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14"></blockquote>
+    </div>
+  </div>
+</div>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+document.querySelectorAll('.tab-btn').forEach(function(btn) {
+  btn.addEventListener('click', function() {
+    document.querySelectorAll('.tab-btn').forEach(function(b) {
+      b.classList.remove('active');
+    });
+    document.querySelectorAll('.tab-content').forEach(function(tab) {
+      tab.classList.remove('active');
+    });
+    btn.classList.add('active');
+    document.getElementById('tab-' + btn.dataset.tab).classList.add('active');
+    // Reparse Instagram embeds when switching tabs
+    if(window.instgrm && window.instgrm.Embeds) {
+      window.instgrm.Embeds.process();
+    }
+    // Scroll to top of tab when switching
+    setTimeout(function() {
+      document.getElementById('tab-' + btn.dataset.tab).scrollIntoView({behavior: 'smooth', block: 'start'});
+    }, 50);
+  });
+});
+
+// Artwork group scroll snap logic
+(function() {
+  // Define artwork group IDs for each tab
+  var artworkGroups = {
+    photo: ['photo-1', 'photo-2'],
+    image: ['image-1'/*, 'image-2'*/],
+    video: ['video-1'/*, 'video-2'*/]
+  };
+
+  function scrollToArtwork(tab, idx) {
+    var groupId = artworkGroups[tab][idx];
+    var el = document.getElementById(groupId);
+    if (el) {
+      el.scrollIntoView({behavior: 'smooth', block: 'start'});
+    }
+  }
+
+  // Enable/disable prev/next buttons
+  function updateNavButtons(tab) {
+    var ids = artworkGroups[tab];
+    ids.forEach(function(id, i) {
+      var group = document.getElementById(id);
+      if (!group) return;
+      var prevBtn = group.querySelector('.artwork-prev');
+      var nextBtn = group.querySelector('.artwork-next');
+      if (prevBtn) prevBtn.disabled = (i === 0);
+      if (nextBtn) nextBtn.disabled = (i === ids.length - 1);
+    });
+  }
+
+  // Add event listeners for prev/next buttons
+  document.querySelectorAll('.artwork-prev, .artwork-next').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      var tab = btn.getAttribute('data-tab');
+      var idx = parseInt(btn.getAttribute('data-index'), 10);
+      var ids = artworkGroups[tab];
+      if (!ids) return;
+      var newIdx = btn.classList.contains('artwork-prev') ? idx - 1 : idx + 1;
+      if (newIdx >= 0 && newIdx < ids.length) {
+        scrollToArtwork(tab, newIdx);
+      }
+    });
+  });
+
+  // Optional: update nav button states on tab switch
+  document.querySelectorAll('.tab-btn').forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      var tab = btn.dataset.tab;
+      setTimeout(function() {
+        updateNavButtons(tab);
+      }, 100);
+    });
+  });
+
+  // Initial nav button state
+  document.addEventListener('DOMContentLoaded', function() {
+    var activeTab = document.querySelector('.tab-btn.active').dataset.tab;
+    updateNavButtons(activeTab);
+  });
+})();
+</script>
+
+</body>
+</html>
