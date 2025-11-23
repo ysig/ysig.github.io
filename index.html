@@ -194,7 +194,7 @@ input:checked + .slider:before {
       <input type="checkbox" id="toggle-switch" onchange="toggleContent()">
       <span class="slider round"></span>
     </label>
-    <span class="switch-label" id="switch-label">Am I a bot?</span>
+    <span class="switch-label" id="switch-label">Long</span>
   </div>
 </div>
 
@@ -270,7 +270,7 @@ function toggleContent() {
         fullContent.classList.add('active');
         fullContent2.classList.add('active');
         toggleableLinks.forEach(link => link.classList.add('active'));
-        switchLabel.textContent = 'I\'m a bot.';
+        switchLabel.textContent = 'Short';
         profileImage.src = './website_file/image_summer.png';
     } else {
         // Switch to brief bio
@@ -278,7 +278,7 @@ function toggleContent() {
         briefBio.classList.add('active');
         fullContent2.classList.remove('active');
         toggleableLinks.forEach(link => link.classList.remove('active'));
-        switchLabel.textContent = 'Am I a bot?';
+        switchLabel.textContent = 'Long';
         profileImage.src = './website_file/yannis.jpg';
     }
 
