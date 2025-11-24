@@ -470,6 +470,21 @@
             font-weight: normal;
         }
         
+        .documents-table th:nth-child(1),
+        .documents-table td:nth-child(1) {
+            width: 25%;
+        }
+        
+        .documents-table th:nth-child(2),
+        .documents-table td:nth-child(2) {
+            width: 80%;
+        }
+        
+        .documents-table th:nth-child(3),
+        .documents-table td:nth-child(3) {
+            width: 10%;
+        }
+        
         .file-size {
             color: #666;
             font-size: 0.9rem;
@@ -783,43 +798,37 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                         <tbody>
                             <tr>
                                 <td><a href="acknowledgments.pdf">Acknowledgements</a></td>
-                                <td>Thesis acknowledgements</td>
+                                <td>Categories I made along the way.</td>
                                 <td class="file-size">120 KB</td>
                             </tr>
                             <tr>
-                                <td><a href="introduction.pdf">Introduction</a></td>
+                                <td><a href="introduction.pdf">Ch. 1: Introduction</a></td>
                                 <td>Image Data Mining as a precursor to visual categorization.</td>
                                 <td class="file-size">14,4 MB</td>
                             </tr>
                             <tr>
-                                <td><a href="related.pdf">Related Work</a></td>
+                                <td><a href="related.pdf">Ch. 2: Related Work</a></td>
                                 <td>Image Data Mining as summarized human interpretable visual discovery.</td>
                                 <td class="file-size">25,8 MB</td>
                             </tr>
                             <tr>
-                                <td><a href="main.pdf">Main Contributions</a></td>
+                                <td><a href="main.pdf">Ch. 3,4: Main Contributions</a></td>
                                 <td>Learnable Typewriter & Diffusion Models as Data Mining Tools.</td>
                                 <td class="file-size">48,2 MB</td>
                             </tr>
                             <tr>
-                                <td><a href="epilogue.pdf">Epilogue</a></td>
+                                <td><a href="epilogue.pdf">Ch. 5: Epilogue</a></td>
                                 <td>Intelligence from dataset learning to dataset making.</td>
                                 <td class="file-size">7,5 MB</td>
                             </tr>
                             <tr>
-                                <td><a href="acknowledgments.pdf">Epilogue</a></td>
-                                <td>Categories I made along the way.</td>
-                                <td class="file-size">120 KB</td>
-                            </tr>
-
-                            <tr>
                                 <td><a href="https://theses.hal.science/tel-05294120v1/">Thesis</a></td>
-                                <td>(online)</td>
+                                <td>(online version)</td>
                                 <td class="file-size">847 MB</td>
                             </tr>
                             <tr>
                                 <td><a href="https://drive.google.com/file/d/1i-3nn-YqKo8qHQWCM9MJ6NSlZNZ7Hlhb/view?usp=sharing">Thesis</a></td>
-                                <td>(printed)</td>
+                                <td>(printed version)</td>
                                 <td class="file-size">847 MB</td>
                             </tr>
 <!--                             <tr>
@@ -951,8 +960,28 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
             const tabButtons = document.querySelectorAll('.abstract-docs-tabs .tab-button');
             const tabContents = document.querySelectorAll('.tab-content');
             
+            // Mapping from hash to tab class
+            const hashToTabMap = {
+                'abstract': 'abstract-tab',
+                'papers': 'papers-tab',
+                'thesis': 'docs-tab',
+                'committee': 'committee-tab',
+                'slides': 'slides-tab',
+                'pictures': 'pictures-tab'
+            };
+            
+            // Mapping from tab class to hash
+            const tabToHashMap = {
+                'abstract-tab': 'abstract',
+                'papers-tab': 'papers',
+                'docs-tab': 'thesis',
+                'committee-tab': 'committee',
+                'slides-tab': 'slides',
+                'pictures-tab': 'pictures'
+            };
+            
             // Function to set active tab
-            function setActiveTab(activeButton) {
+            function setActiveTab(activeButton, skipHashUpdate) {
                 // Remove active class from all buttons and contents
                 tabButtons.forEach(button => button.classList.remove('active'));
                 tabContents.forEach(content => content.classList.remove('active'));
@@ -967,10 +996,33 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
                     activeContent.classList.add('active');
                 }
                 
+                // Update URL hash (unless called from hash handler)
+                if (!skipHashUpdate) {
+                    const tabClass = activeButton.classList[1];
+                    const hash = tabToHashMap[tabClass];
+                    if (hash) {
+                        window.location.hash = hash;
+                    }
+                }
+                
                 // Special handling for pictures tab
                 if (activeButton.classList.contains('pictures-tab')) {
                     loadPictures();
                 }
+            }
+            
+            // Function to activate tab from hash
+            function activateTabFromHash() {
+                const hash = window.location.hash.substring(1); // Remove the #
+                const tabClass = hashToTabMap[hash];
+                if (tabClass) {
+                    const tab = document.querySelector('.' + tabClass);
+                    if (tab) {
+                        setActiveTab(tab, true); // Skip hash update since hash is already set
+                        return true;
+                    }
+                }
+                return false;
             }
             
             // Add click event listeners to all tab buttons
@@ -1024,21 +1076,17 @@ Image archives contain lots of hidden knowledge that researchers in the digital 
             }
             
             // Handle URL hash on page load
-            if (window.location.hash === '#papers') {
-                const papersTab = document.querySelector('.papers-tab');
-                if (papersTab) {
-                    setActiveTab(papersTab);
+            if (!activateTabFromHash()) {
+                // If no valid hash, default to abstract tab (but don't update hash)
+                const abstractTab = document.querySelector('.abstract-tab');
+                if (abstractTab) {
+                    setActiveTab(abstractTab, true); // Skip hash update for default tab
                 }
             }
             
             // Handle hash changes
             window.addEventListener('hashchange', function() {
-                if (window.location.hash === '#papers') {
-                    const papersTab = document.querySelector('.papers-tab');
-                    if (papersTab) {
-                        setActiveTab(papersTab);
-                    }
-                }
+                activateTabFromHash();
             });
         });
     </script>
