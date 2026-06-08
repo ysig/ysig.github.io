@@ -8,8 +8,6 @@
 </head>
 <body>
 
-<h1>Talks</h1>
-<hr size="2" width="35%" color="black" align="left"> 
 <div class="mainbox">
   <h1>(2026) When Comics Chat: A Deep Prior for Text-Balloon Reading Order</h1>
   <b><a target="_blank" href="https://comma2026.echochamber.be/">Comma</a>, KTH</b>, 2026.
@@ -105,6 +103,36 @@ Lab Assistant in Web and Graph Mining with <a target="_blank" href="http://www.l
 
 
 </div>
+
+
+<script>
+(function () {
+  function postHeight() {
+    // Measure body content only. documentElement.scrollHeight tracks the
+    // iframe's own viewport, which would feed back and grow the page forever.
+    var h = document.body ? document.body.scrollHeight : 0;
+    if (h && window.parent !== window) parent.postMessage({ __frameHeight: h }, '*');
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  document.addEventListener('DOMContentLoaded', postHeight);
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.__requestHeight) postHeight();
+  });
+  // Fires the moment body content reflows — when this tab is shown (going from
+  // display:none to visible) and as images finish loading. Observing body, not
+  // documentElement, avoids any feedback loop since body height tracks content.
+  if (window.ResizeObserver && document.body) {
+    new ResizeObserver(postHeight).observe(document.body);
+  }
+  Array.prototype.forEach.call(document.images, function (img) {
+    img.addEventListener('load', postHeight);
+    img.addEventListener('error', postHeight);
+  });
+  setTimeout(postHeight, 300);
+  setTimeout(postHeight, 1000);
+})();
+</script>
 
 </body>
 </html>

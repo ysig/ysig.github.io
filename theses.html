@@ -10,8 +10,6 @@
 
 <!-- <h1>Theses<br></h1> -->
 <div class="mainbox">
-<h1>Thesis<br></h1>
-<hr size="2" width="600em" color="black" align="left"> 
 
 <h1>(2022-2025) <a target="_blank" href="https://ysig.github.io/phd/">Image Mining via Synthesis</a> (PhD Thesis)</h1>
 
@@ -22,5 +20,35 @@
 
 <!-- <h1>(2016) <a target="_blank" href="https://drive.google.com/file/d/1movLa3Mgh5Cmx-I7b40OcdTLciItBvXw/view?usp=sharing">Κριτική του άρθρου: "Τι είναι το πρόβλημα του συνεχούς του Cantor;" του Kurt Gödel</a> (Philosophy of Mathematics Class Thesis)</h1> -->
 </div>    
+
+<script>
+(function () {
+  function postHeight() {
+    // Measure body content only. documentElement.scrollHeight tracks the
+    // iframe's own viewport, which would feed back and grow the page forever.
+    var h = document.body ? document.body.scrollHeight : 0;
+    if (h && window.parent !== window) parent.postMessage({ __frameHeight: h }, '*');
+  }
+  window.addEventListener('load', postHeight);
+  window.addEventListener('resize', postHeight);
+  document.addEventListener('DOMContentLoaded', postHeight);
+  window.addEventListener('message', function (e) {
+    if (e.data && e.data.__requestHeight) postHeight();
+  });
+  // Fires the moment body content reflows — when this tab is shown (going from
+  // display:none to visible) and as images finish loading. Observing body, not
+  // documentElement, avoids any feedback loop since body height tracks content.
+  if (window.ResizeObserver && document.body) {
+    new ResizeObserver(postHeight).observe(document.body);
+  }
+  Array.prototype.forEach.call(document.images, function (img) {
+    img.addEventListener('load', postHeight);
+    img.addEventListener('error', postHeight);
+  });
+  setTimeout(postHeight, 300);
+  setTimeout(postHeight, 1000);
+})();
+</script>
+
 </body>
 </html>
