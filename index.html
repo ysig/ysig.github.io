@@ -533,14 +533,25 @@ My poetry collection written circa 2013-2018.
 (function () {
   var links = document.querySelectorAll('.tab-link');
   var panels = document.querySelectorAll('.tab-frame');
+  var ids = Array.prototype.map.call(links, function (l) { return l.getAttribute('data-target'); });
+
+  function activate(target) {
+    if (ids.indexOf(target) === -1) return false;
+    links.forEach(function (l) { l.classList.toggle('active', l.getAttribute('data-target') === target); });
+    panels.forEach(function (p) { p.classList.toggle('active', p.id === target); });
+    return true;
+  }
+
+  // Clicking a tab updates the URL hash; the hashchange handler switches tabs.
   links.forEach(function (link) {
     link.addEventListener('click', function () {
-      links.forEach(function (l) { l.classList.remove('active'); });
-      panels.forEach(function (p) { p.classList.remove('active'); });
-      link.classList.add('active');
-      document.getElementById(link.getAttribute('data-target')).classList.add('active');
+      window.location.hash = link.getAttribute('data-target');
     });
   });
+  window.addEventListener('hashchange', function () { activate(window.location.hash.slice(1)); });
+
+  // Restore the tab from the URL hash on load (keeps the default tab otherwise).
+  activate(window.location.hash.slice(1));
 })();
 </script>
 
